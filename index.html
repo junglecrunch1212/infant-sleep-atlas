@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Infant Sleep Atlas</title>
+<meta name="description" content="An evidence audit and playbook for infant sleep from 4 to 12 months: what moves long-term outcomes, what doesn't, and where the real risk is.">
+<script>
+  (function () {
+    try { var t = localStorage.getItem("isa-theme"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Literata:ital,opsz,wght@0,7..72,400..700;1,7..72,400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2318203A'/%3E%3Crect x='6' y='9' width='20' height='3' rx='1.5' fill='%236A7BDC'/%3E%3Crect x='9' y='15' width='17' height='3' rx='1.5' fill='%236A7BDC'/%3E%3Crect x='6' y='21' width='8' height='3' rx='1.5' fill='%23C4861C'/%3E%3Crect x='17' y='21' width='9' height='3' rx='1.5' fill='%236A7BDC'/%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="topbar">
+  <details id="mnav">
+    <summary>Plates</summary>
+    <nav aria-label="Plates" data-nav></nav>
+  </details>
+  <button class="theme-btn" type="button" data-theme-toggle aria-label="Switch colour theme"></button>
+</div>
+
+<div class="shell">
+  <aside class="rail" aria-label="Plates">
+    <a class="rail-title" href="#top">Infant Sleep Atlas</a>
+    <ol data-nav></ol>
+    <div class="rail-foot"><button class="theme-btn" type="button" data-theme-toggle aria-label="Switch colour theme"></button></div>
+  </aside>
+
+<main id="main">
+
+<!-- ===================== HERO ===================== -->
+<header class="hero" id="top">
+  <h1>Most infant sleep doctrine fails the audit</h1>
+  <p class="lede">For a healthy four-month-old who already sleeps eleven hours with one feed, the evidence reduces to three instructions: enforce the physical safety rules without exception, keep total sleep adequate and timing regular, and treat almost everything else as preference.</p>
+  <div class="prose sub">
+    <p>No first-year sleep practice inside the normal range of loving care has a demonstrated long-term effect on cognition, emotional development or later sleep. Every multi-year follow-up (sleep training at 6 years, leaving to cry and attachment at 18 months, bed-sharing to 11 and 18 years, room-sharing to 8 years) is null or trivially small. Those nulls come from underpowered, mostly parent-reported studies, so they exclude large effects (roughly 0.3–0.4 SD and up) and say nothing about small ones.</p>
+    <p>Commercial sleep culture sells parental relief on parent-reported outcomes that objective measurement does not confirm. Two official US positions flatten steep age and hazard gradients into absolutes. The attachment camp's counter-claims are no better evidenced, and the hazard core of official advice is correct and the opposite of convenient. <a href="#plate-3">Plate III</a> grades 43 claims; <a href="#plate-1">Plate I</a> lists what to change this week.</p>
+  </div>
+  <div class="key" aria-label="How statements are labelled">
+    <div><span class="st measured">Measured</span> a study observed it; design, size and effect given</div>
+    <div><span class="st modelled">Modelled</span> calculated from measured inputs under stated assumptions</div>
+    <div><span class="st judgement">Judgement</span> no study exists; rests on mechanism</div>
+  </div>
+
+  <figure class="fig acto" id="acto" aria-labelledby="acto-t">
+    <p class="fig-title" id="acto-t">A first year, drawn as sleep</p>
+    <p class="fig-sub">Each row is one week; each bar is a sleep bout, on a clock running 6 pm to 6 pm so the night sits in the middle. Fragmented newborn sleep consolidates into one night block and a shrinking set of naps.</p>
+    <div class="legend">
+      <span><i class="sw" style="background:var(--sleep);opacity:.62"></i>Weeks behind her (age norms)</span>
+      <span><i class="sw" style="background:var(--sleep)"></i>Her reported day</span>
+      <span><i class="sw dot" style="background:var(--day)"></i>Night feed</span>
+      <span><i class="sw" style="background:var(--sleep);opacity:.34"></i>Weeks ahead (projected from norms)</span>
+    </div>
+    <div class="acto-grid" data-acto></div>
+    <figcaption>Schematic. Rows other than week 18 are drawn from published age norms for night length, nap count and nap length (<a class="c" href="https://doi.org/10.1542/peds.111.2.302">Iglowstein 2003</a>, <a class="c" href="https://doi.org/10.3390/s20247188">Schoch 2020</a>, <a class="c" href="https://doi.org/10.1016/j.sleep.2020.01.009">Paavonen 2020</a>, <a class="c" href="https://doi.org/10.1111/1469-7610.00076">Burnham 2002</a>); they are not anyone's recorded data. Week 18 uses her reported night (8:30 pm to 7:30 am, one feed); its nap times and the feed's clock time are placed at typical positions. The extra wakings drawn in weeks 33–40 mark the motor-milestone bump some infants show.</figcaption>
+    <details class="more">
+      <summary>Show the age norms behind the chart</summary>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Age</th><th class="num">Longest wake bout</th><th class="num">Night, in bed</th><th class="num">Day sleep</th><th>Naps</th><th class="num">Not sleeping 6 h straight</th></tr></thead>
+          <tbody>
+            <tr><td>3 months</td><td class="num">162 min (101–292)</td><td class="num">—</td><td class="num">—</td><td>3–5</td><td class="num">—</td></tr>
+            <tr><td>6 months</td><td class="num">212 min (139–348)</td><td class="num">11.0 h (SD 1.1)</td><td class="num">3.4 h</td><td>3, falling to 2</td><td class="num">38%</td></tr>
+            <tr><td>9 months</td><td class="num">—</td><td class="num">—</td><td class="num">2.8 h</td><td>2 (72% at 8 months)</td><td class="num">—</td></tr>
+            <tr><td>12 months</td><td class="num">293 min</td><td class="num">11.2–11.7 h</td><td class="num">2.4 h</td><td>2</td><td class="num">28%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="cap">Wake bouts: actigraphy, <a href="https://doi.org/10.3390/s20247188">Schoch 2020</a>. Night in bed: Zurich reference, <a href="https://doi.org/10.1542/peds.111.2.302">Iglowstein 2003</a>. Day sleep: pooled norms, <a href="https://doi.org/10.1016/j.smrv.2011.06.001">Galland 2012</a>. Two naps at 8 months: <a href="https://doi.org/10.1016/j.sleep.2020.01.009">Paavonen 2020</a>. Sleeping through: <a href="https://doi.org/10.1542/peds.2017-4330">Pennestri 2018</a>. Dashes mark values not retrieved.</p>
+    </details>
+  </figure>
+</header>
+
+<!-- ===================== PLATE I ===================== -->
+<section class="plate" id="plate-1" data-plate="I" data-short="The bottom line">
+  <div class="plate-head"><span class="plate-no">Plate I</span><h2>Five changes now, a short list that matters, a long list that doesn't</h2></div>
+  <div class="triad">
+    <div class="now">
+      <h3>Change now</h3>
+      <ul>
+        <li><b>Move her from the bassinet to a crib, mini crib or play yard beside your bed.</b><small>She rolls. The bassinet standard covers babies up to about 5 months or until they push up on hands and knees, whichever comes first; some makers say stop at rolling. <a href="#plate-5">Plate V</a></small></li>
+        <li><b>Arms-free, non-weighted sleep sack; no swaddle; nothing else in the sleep space.</b><small>Swaddled and prone, OR 12.99. Objects in the sleep area are the dominant hazard after 4 months.</small></li>
+        <li><b>Prepare your bed every night as if she will finish the night in it.</b><small>Both adults bound by the alcohol, sedative and exhaustion exclusion. Wedging deaths: median age 6 months, 73% in adult beds. <a href="#plate-4">Plate IV</a></small></li>
+        <li><b>Give every caregiver the written protocol.</b><small>Awake-holder rule for contact naps, no sofa or recliner, no sitting devices for sleep. <a href="#plate-7">Plate VII</a></small></li>
+        <li><b>Label pumped milk by time of day; test iron instead of dosing blind.</b><small>Free hedge on an untested hypothesis; iron guidance is contested and status is measurable. <a href="#plate-8">Plate VIII</a></small></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Matters</h3>
+      <ul>
+        <li><b>Back sleeping on a firm, flat, bare, purpose-built surface; smoke-free; sober, alert adults.</b><small>Largest effect sizes in the field and least likely to be revised.</small></li>
+        <li><b>Enough total sleep and regular timing anchored on wake time.</b><small>She has both. The only sleep variables with consistent links to later outcomes, and those links are small and confounded.</small></li>
+        <li><b>Bright days, dim evenings, a short fixed bedtime routine run identically by every caregiver.</b><small>Best-supported daily inputs; effects of tens of minutes.</small></li>
+        <li><b>More than any sleep variable: emotional availability, responsive play and conversation while she is awake.</b><small>Effects roughly an order of magnitude larger. <a href="#plate-2">Plate II</a></small></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Doesn't matter for her outcomes</h3>
+      <div class="pills" role="list">
+        <span role="listitem">Feeding to sleep</span><span role="listitem">Rocking to sleep</span><span role="listitem">Contact naps</span><span role="listitem">45-minute naps</span><span role="listitem">One night feed</span><span role="listitem">8:30 pm bedtime</span><span role="listitem">Sleeping through</span><span role="listitem">Wake windows</span><span role="listitem">"Overtiredness"</span><span role="listitem">Sleep training</span><span role="listitem">White noise</span><span role="listitem">Blackout blinds</span><span role="listitem">Smart bassinets</span><span role="listitem">Oxygen monitors</span><span role="listitem">Solids, cereal or formula for sleep</span><span role="listitem">Teething</span>
+      </div>
+      <p style="font-family:var(--sans);font-size:.86rem;color:var(--ink-2);margin:0">No demonstrated long-term effect on the child; several of these claims are contradicted outright. Each is graded in <a href="#plate-3">Plate III</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PLATE II ===================== -->
+<section class="plate" id="plate-2" data-plate="II" data-short="What moves outcomes">
+  <div class="plate-head"><span class="plate-no">Plate II</span><h2>Sleep explains under 1% of later outcomes; waking-hours interaction explains 6–27%</h2></div>
+  <div class="prose">
+    <p>The question "which sleep practice is best for her long-term development" has a scale problem before it has an answer. <span class="st measured">Measured</span> In school-age children, sleep duration correlates r = .08 with cognitive performance and r = .09 with behaviour problems across 86 studies and 35,936 children, and not at all with intelligence (<a class="c" href="https://doi.org/10.1037/a0028204">Astill 2012</a>); with objectively measured sleep the figure is r = .06 (<a class="c" href="https://doi.org/10.1016/j.sleh.2018.02.004">Short 2018</a>). That is under 1% of variance, observational, before confounding is removed.</p>
+    <p>For infancy specifically, the best systematic review (22 studies of sleep at 0–18 months against Bayley, WPPSI and similar tests) found 53.5% of about 101 tested associations null, 39.6% mixed and 5.9% consistently significant, two of those six in the wrong direction. Study power ranged from 0.06 to 0.88; one study reached 0.80 (<a class="c" href="https://doi.org/10.1093/sleep/zsae174">Butler 2024</a>). Sleeping through at 6 or 12 months had no association with Bayley scores at 6, 12 or 36 months in 388 infants (<a class="c" href="https://doi.org/10.1542/peds.2017-4330">Pennestri 2018</a>); three or more wakings a night at 8 months made no Bayley-III difference at 8 or 24 months (<a class="c" href="https://doi.org/10.1037/dev0000503">Mäkelä 2018</a>).</p>
+  </div>
+
+  <figure class="fig" aria-labelledby="var-t">
+    <p class="fig-title" id="var-t">Share of variance in later child outcomes, by predictor</p>
+    <p class="fig-sub">Variance explained is r² for correlations. Every row is observational. Note that the sleep rows come from school-age sleep, not infancy; infant data are weaker still.</p>
+    <div class="legend"><span><i class="sw" style="background:var(--sleep)"></i>Sleep</span><span><i class="sw" style="background:var(--day)"></i>Waking-hours interaction</span></div>
+    <div data-variance></div>
+    <figcaption>Sources: <a href="https://doi.org/10.1037/a0028204">Astill 2012</a>; <a href="https://doi.org/10.1016/j.sleh.2018.02.004">Short 2018</a>; <a href="https://doi.org/10.1111/j.1467-8624.1997.tb04218.x">De Wolff &amp; van IJzendoorn 1997</a>; <a href="https://doi.org/10.1542/peds.2018-3556">Madigan 2019</a>; <a href="https://doi.org/10.1542/peds.2017-4276">Gilkerson 2018</a> (n = 146, controlling for socioeconomic status).</figcaption>
+    <details class="more"><summary>Show as a table</summary><div class="tablewrap" data-variance-table></div></details>
+  </figure>
+
+  <div class="prose">
+    <p>The positive signals that do exist share a signature. Outcomes measured by direct testing are mostly unrelated to infant sleep. Outcomes rated by the same parent who rated the sleep show small associations: 0.14–0.18 SD higher mother-rated internalising after sleep problems at 6 months in 86,724 Norwegian infants (<a class="c" href="https://doi.org/10.1186/s12887-020-02483-1">Valla 2021</a>). Teacher-rated outcomes shrink toward zero: effect size −0.12 for infant-limited sleep problems at age 10–11 in 5,107 Australian children, with no difference in school achievement (<a class="c" href="https://doi.org/10.1111/jcpp.13303">Williamson 2020</a>). That is what shared-reporter variance plus modest confounding produces.</p>
+    <p>The associations also sit in the tails. The shortest-sleeping 18% across 3–24 months scored 5.2 Bayley points, about 0.35 SD, lower at age 2 (<a class="c" href="https://doi.org/10.1016/j.sleep.2018.04.005">Smithson 2018</a>); combined sleep, crying and feeding problems carried d = 0.41 for later behaviour problems across 22 studies (<a class="c" href="https://doi.org/10.1136/adc.2010.191312">Hemmi 2011</a>). She is in none of those groups. Several widely quoted results are exposure-window mismatches: the Quebec short-sleep finding used sleep from age 2.5 to 6 (<a class="c" href="https://doi.org/10.1093/sleep/30.9.1213">Touchette 2007</a>), the Norwegian result is from 18 months (<a class="c" href="https://doi.org/10.1001/jamapediatrics.2015.0187">Sivertsen 2015</a>), and the bedtime-regularity findings are from ages 3–7 (<a class="c" href="https://doi.org/10.1542/peds.2013-1906">Kelly 2013</a>).</p>
+    <p>Two designs test causation, and neither supports a large effect. The only genetically informed analysis attributes the link between day/night sleep at 6 months and later language mainly to shared genes (1,029 twins, <a class="c" href="https://doi.org/10.5665/sleep.1148">Dionne 2011</a>). Randomised trials that changed sleep parenting produced no child difference in behaviour, sleep, stress or relationship measures at ages 2 and 6 (<a class="c" href="https://doi.org/10.1542/peds.2007-3783">Hiscock 2008</a>; <a class="c" href="https://doi.org/10.1542/peds.2011-3467">Price 2012</a>); BMI reductions in two trials faded by ages 9–11 (<a class="c" href="https://doi.org/10.1001/jamapediatrics.2024.6897">Paul 2025</a>; <a class="c" href="https://doi.org/10.1111/ijpo.13204">Taylor 2025</a>). No trial has measured cognition or language after an infant sleep intervention.</p>
+    <p><span class="st modelled">Modelled</span> Replacing the entire rearing family raised IQ at 18–20 by 4.4 points in a Swedish sibling design (<a class="c" href="https://doi.org/10.1073/pnas.1417106112">Kendler 2015</a>), and mean heritability across traits is 49% (<a class="c" href="https://doi.org/10.1038/ng.3285">Polderman 2015</a>). One practice difference inside an already favourable home (45- versus 60-minute naps, rocked versus self-settled onset, one night feed versus none) therefore plausibly moves long-term cognition by well under one IQ point. That bound is an inference from behaviour genetics, not a measurement.</p>
+  </div>
+
+  <h3>Sleep variables, ranked by evidence and size</h3>
+  <div class="tablewrap">
+    <table class="ranktable">
+      <thead><tr><th></th><th>Variable</th><th>Evidence</th><th>Best estimate of size</th><th>Her status</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Safe sleep environment (mortality)</td><td>Strong observational, mechanistic</td><td>Odds ratios 5–67 for the major hazards</td><td>Three live action items</td></tr>
+        <tr><td>2</td><td>Adequate total sleep (not the shortest 10–20%)</td><td>Consistent association; causality unknown</td><td>Up to 0.35 SD at age 2 in the most extreme contrast; usually far less</td><td>Met (about 13–13.5 h)</td></tr>
+        <tr><td>3</td><td>Regular timing and routine</td><td>Consistent at ages 3–7; thin in year one</td><td>+1.85 teacher-rated SDQ points for never-regular bedtimes at 3, 5 and 7 (<a class="c" href="https://doi.org/10.1542/peds.2013-1906">Kelly 2013</a>); confounded by household organisation</td><td>Met</td></tr>
+        <tr><td>4</td><td>Short sleep and later overweight</td><td>Association; trial effects faded</td><td>RR 1.40 across 7 studies (<a class="c" href="https://doi.org/10.1093/sleep/zsy018">Miller 2018</a>)</td><td>Not applicable</td></tr>
+        <tr><td>5</td><td>Share of sleep at night</td><td>Weak; likely a maturation marker</td><td>0.12 verbal-IQ points per percentage point, about 1 point per SD (n = 969, <a class="c" href="https://doi.org/10.1097/dbp.0000000000001311">Finkel 2024</a>)</td><td>Favourable</td></tr>
+        <tr><td>6</td><td>Night wakings, sleeping through</td><td>No link to cognition; small link to parent-rated dysregulation when frequent and persistent</td><td>Null on Bayley</td><td>One feed, normal</td></tr>
+        <tr><td>7</td><td>Nap number and length; extending short naps</td><td>No evidence of long-term effect</td><td>A nap after learning aids retention over hours (g = 0.35, <a class="c" href="https://doi.org/10.1016/j.sleep.2025.106649">Souabni 2025</a>); length not shown to matter</td><td>Naps match the length studied</td></tr>
+        <tr><td>8</td><td>Sleep-onset method; night-time responsiveness</td><td>No long-term effect shown; associated with more signalled waking later</td><td>Null in trial follow-ups</td><td>Preference</td></tr>
+        <tr><td>9</td><td>Contact or motion sleep versus cot</td><td>No data in term infants past the newborn period</td><td>Unknown</td><td>Preference, bounded by safety</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout prose">
+    <h3>What the nulls can and cannot exclude</h3>
+    <p>The main "no long-term harm" sleep-training study followed 225 of 326 children (69%) to age 6 and found an SDQ difference of +0.5 points (95% CI −1.0 to +1.9, on an SD near 5.8). That excludes intention-to-treat harm above roughly 0.33 SD. But only 100 of 174 intervention mothers attended a sleep consultation, families chose their own mix of methods, and no infant under 7 months was enrolled (<a class="c" href="https://doi.org/10.1542/peds.2011-3467">Price 2012</a>). <span class="st modelled">Modelled</span> Harm confined to infants who actually underwent controlled crying could reach 0.65–0.7 SD and go undetected.</p>
+    <p>The attachment trial had about 10 dyads per arm at 12 months, roughly 15% power for a 20-point difference in security (<a class="c" href="https://doi.org/10.1542/peds.2015-1486">Gradisar 2016</a>). The cohort study of leaving infants to cry had 80% power only for a 20-point difference and measured one coarse "ever left to cry" item (<a class="c" href="https://doi.org/10.1111/jcpp.13439">Bilgin &amp; Wolke 2021</a>). The bed-sharing nulls are better powered: no association between bed-sharing at 9 months and internalising or externalising trajectories from 3 to 11 years in 16,599 UK children (<a class="c" href="https://pubmed.ncbi.nlm.nih.gov/39033345/">Bilgin 2024</a>).</p>
+    <p>Large effects in either direction are ruled out for the practices studied; small effects (0.1–0.3 SD) are not; no sleep-training trial has followed children past age 6. Infants high in negative emotionality are more affected by both poor and good parenting across 84 longitudinal studies (<a class="c" href="https://pubmed.ncbi.nlm.nih.gov/27513919/">Slagt 2016</a>), which by inference makes the choice among reasonable practices lower-stakes for an easy infant. That inference is untested for sleep, and temperament at 4 months predicts later temperament only weakly (<a class="c" href="https://pubmed.ncbi.nlm.nih.gov/9914634/">Kagan 1998</a>).</p>
+  </div>
+</section>
+
+<!-- ===================== PLATE III ===================== -->
+<section class="plate" id="plate-3" data-plate="III" data-short="The audit">
+  <div class="plate-head"><span class="plate-no">Plate III</span><h2>Convenience explains the commercial layer; momentum explains two official absolutes</h2></div>
+
+  <div class="hyp">
+    <div>
+      <span class="who">Your hypothesis 1</span>
+      <q>Popular advice is shaped by what time-poor, dual-income parents want to hear.</q>
+      <span class="verdict"><i class="g partly"></i>Holds for commercial sleep culture; fails for official safety advice</span>
+      <ul>
+        <li>Benefits of behavioural sleep interventions accrue to parents: diary wakings fell while actigraph wakings did not, and parental fatigue, mood and sleep improved (<a class="c" href="https://doi.org/10.1186/s12887-015-0492-7">Hall 2015</a>).</li>
+        <li>Much of the normative and efficacy literature is funded by Johnson &amp; Johnson or the camera maker Nanit; parents start training at 5.3–5.6 months, earlier than the 6+ months the trials studied (<a class="c" href="https://doi.org/10.1016/j.jpeds.2022.10.038">Kahn 2023</a>; <a class="c" href="https://doi.org/10.1016/j.jpeds.2018.04.009">Honaker 2018</a>).</li>
+        <li>Against it: official safe-sleep advice asks for more effort, and mothers call it "unrealistic" (<a class="c" href="https://pubmed.ncbi.nlm.nih.gov/38529562/">Moon 2024</a>). Parental stress did not predict use of ignore-the-crying methods among 586 parents; beliefs about scheduling and dependence did (<a class="c" href="https://pubmed.ncbi.nlm.nih.gov/29489022/">Maute &amp; Perren 2018</a>).</li>
+      </ul>
+    </div>
+    <div>
+      <span class="who">Your hypothesis 2</span>
+      <q>A 30-year scientific consensus has crowded out dissent and may be overturned.</q>
+      <span class="verdict"><i class="g partly"></i>Precedent and partial support; no evidence of suppression</span>
+      <ul>
+        <li>Prone sleeping was recommended 1943–1988 "based on extrapolation from untested theory"; pooled data showed harm by 1970 (<a class="c" href="https://pubmed.ncbi.nlm.nih.gov/15843394/">Gilbert 2005</a>). Allergen avoidance fell to one trial: peanut allergy 13.7% with avoidance vs 1.9% with early eating (<a class="c" href="https://pubmed.ncbi.nlm.nih.gov/25705822/">Du Toit 2015</a>). 40.2% of 363 tested medical practices were reversed (<a class="c" href="https://pubmed.ncbi.nlm.nih.gov/23871230/">Prasad 2013</a>).</li>
+        <li>Room-sharing to 12 months and the blanket bed-sharing ban share the failed positions' features: extrapolation, data stretched past their age range, "healthy adopter" inflation (the prone odds ratio rose from 2.95 to 6.91 once advice changed).</li>
+        <li>Against suppression: dissent is published in <i>Pediatrics</i>, <i>BMJ Open</i> and <i>PLoS One</i>, has changed guidance in England, Norway and Spain, and moved the AAP from "ideally one year" to "at least 6 months" of room-sharing.</li>
+      </ul>
+    </div>
+    <div>
+      <span class="who">The contrarian counter-claim</span>
+      <q>The attachment and "natural" camp is the better guide.</q>
+      <span class="verdict"><i class="g unsupported"></i>Fails the same audit</span>
+      <ul>
+        <li>Of four studies Sears cited for brain damage from crying, two were in rat pups and one in monkeys; two researchers he cited called it "not relevant" and "a mis-citation" (<a class="c" href="https://ideas.time.com/?p=14880">TIME 2012</a>).</li>
+        <li>The Possums "neuroprotective" programme rests on surveys co-authored by its owner; its one controlled comparison found no adjusted sleep benefit (<a class="c" href="https://doi.org/10.1007/s00431-021-03942-2">Öztürk 2021</a>).</li>
+        <li>The founding "respond fast, cry less" finding failed replication (<a class="c" href="https://doi.org/10.1080/14616730010001596">van IJzendoorn &amp; Hubbard 2000</a>).</li>
+      </ul>
+    </div>
+    <div>
+      <span class="who">The null</span>
+      <q>Within normal loving care, sleep-practice choices barely matter long-term.</q>
+      <span class="verdict"><i class="g supported"></i>Best supported of the four</span>
+      <ul>
+        <li>Every multi-year follow-up is null or trivial: sleep training to 6 years, cry-out and attachment, bed-sharing to 11 years (n = 16,599) and to 18, room-sharing to 8, sleeping through versus development.</li>
+        <li>The nulls exclude large effects, not small ones (<a href="#plate-2">Plate II</a>).</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="filters" role="group" aria-label="Filter claims">
+    <div class="frow" data-filter="verdict"><span>Verdict</span></div>
+    <div class="frow" data-filter="serves"><span>Who it serves</span></div>
+  </div>
+  <p class="count-line" aria-live="polite" data-count></p>
+  <div class="claims" data-claims></div>
+</section>
+
+<!-- ===================== PLATE IV ===================== -->
+<section class="plate" id="plate-4" data-plate="IV" data-short="Where the risk is">
+  <div class="plate-head"><span class="plate-no">Plate IV</span><h2>Her residual risk is a few per 100,000, concentrated in avoidable scenarios</h2></div>
+  <div class="prose">
+    <p><span class="st measured">Measured</span> US sudden unexpected infant death (SIDS, plus unknown cause, plus accidental suffocation and strangulation in bed) ran at 93.6 per 100,000 live births in 2024 and has not improved since about 2000 (<a class="c" href="https://www.cdc.gov/sudden-infant-death/data-research/data/sids-deaths-by-cause.html">CDC</a>). In the CDC case registry, at least 76% of deaths involved multiple unsafe sleep factors and 0.9% had none documented (<a class="c" href="https://doi.org/10.1542/peds.2023-061984">Erck Lambert 2024</a>).</p>
+  </div>
+
+  <figure class="fig" aria-labelledby="age-t">
+    <p class="fig-title" id="age-t">Two-thirds of sudden infant deaths happen before 4 months</p>
+    <p class="fig-sub">Share of US sudden unexpected infant deaths by age, CDC registry, 7,595 deaths, 2011–2020.</p>
+    <div class="cols-wrap">
+      <div>
+        <div class="cols" data-agecols></div>
+        <div class="col-labels" data-agelabels></div>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="big">73%</div><div class="lab">of wedging deaths happen in adult beds; median age 6 months, 58% at 5–8 months</div></div>
+        <div class="stat"><div class="big">0</div><div class="lab">overlay deaths after 7 months in the series; overlay's median age is 2 months</div></div>
+      </div>
+    </div>
+    <figcaption>Ages 4–12 months are drawn at full strength because that is the risk still ahead of her. Source: <a href="https://doi.org/10.1542/peds.2023-061984">Erck Lambert 2024</a>; suffocation mechanisms from 250 explained deaths, <a href="https://doi.org/10.1542/peds.2018-3408">Erck Lambert 2019</a>.</figcaption>
+  </figure>
+
+  <div class="prose">
+    <p>The cause mix shifts with age. Among 250 explained suffocations, overlay had a median age of 2 months with none after 7 months; soft-bedding deaths a median of 3 months; wedging a median of 6 months, most often between mattress and wall or mattress and headboard. In infants aged 5–11 months, blankets obstructed the airway in 55% of soft-bedding deaths (<a class="c" href="https://doi.org/10.1542/peds.2018-3408">Erck Lambert 2019</a>). A comparison of younger and older victims concludes that "rolling into objects in the sleep area is the predominant risk factor for older infants" (<a class="c" href="https://doi.org/10.1542/peds.2014-0401">Colvin 2014</a>). That is her age band and her new skill.</p>
+  </div>
+
+  <figure class="fig" aria-labelledby="lad-t">
+    <p class="fig-title" id="lad-t">Absolute risk over months 4–12, per 100,000 infants</p>
+    <p class="fig-sub"><span class="st modelled">Modelled</span> Every absolute figure here is calculated, not observed: the 2024 US rate times the registry age split, or Carpenter's minimum-risk baseline times measured odds ratios. Log scale.</p>
+    <div class="legend"><span><i class="sw" style="background:var(--sleep)"></i>Safe-sleep scenarios</span><span><i class="sw" style="background:var(--muted)"></i>Population reference</span><span><i class="sw" style="background:var(--hazard)"></i>Hazard scenarios</span></div>
+    <div data-ladder></div>
+    <figcaption>Relative risks: hazard-free bed-sharing at 3+ months, adjusted OR 1.0 (0.3–3.0) (<a href="https://doi.org/10.1136/bmjopen-2012-002299">Carpenter 2013</a>) and 0.08 (0.01–0.52) at 98+ days, from one case (<a href="https://doi.org/10.1371/journal.pone.0107799">Blair 2014</a>). Sofa or armchair: OR 18.3 (7.1–47.4), other studies 24–67. Bed-sharing after more than 2 units of alcohol: OR 18.3 (7.7–43.5), about 6 in older infants (<a href="https://doi.org/10.1371/journal.pone.0107799">Blair 2014</a>). The low-risk baseline assumes a population SIDS rate of 0.5 per 1,000.</figcaption>
+    <details class="more"><summary>Show as a table</summary><div class="tablewrap" data-ladder-table></div></details>
+  </figure>
+
+  <div class="prose">
+    <p>Four caveats bound the bed-sharing row. The two estimates for older infants rest on few exposed cases (Blair's on one). All hazard-stratified data pre-date 2007. SIDS case-control studies under-capture accidental suffocation and entrapment, which is exactly the mechanism that remains in adult beds at 5–8 months; unadjusted 1990s product-safety data put suffocation risk 20–40 times higher in adult beds than in cribs, with no adjustment for alcohol, smoking or sofas (<a class="c" href="https://doi.org/10.1542/peds.112.4.883">Scheers 2003</a>). And no study has examined bed-sharing by mothers who feed pumped milk by bottle: the protective behaviours seen on video (infant at breast height below the pillows, mother curled around her, synchronised arousals) were observed in mothers nursing at the breast, while 71% of formula-fed infants lay at face height on or between pillows (<a class="c" href="https://doi.org/10.3389/fped.2022.1081028">Bartick 2022</a>; <a class="c" href="https://doi.org/10.1007/s12110-006-1011-1">Ball 2006</a>).</p>
+    <h3>Bed-sharing, applied to this family</h3>
+    <p>At about 4 months she is past the 15-week window in which Carpenter finds significant hazard-free risk, though not by a wide margin. Here the US absolute and the UK risk-stratified position diverge, and the UK position fits the hazard-stratified data better. Finishing the night in the parents' bed is the pattern English investigators coded as "taken to and found in parental bed": elevated before adjustment, not significant after adjusting for alcohol, heavy duvets, parental tiredness and crowding, and not significant beyond 14 weeks or for non-smokers (<a class="c" href="https://doi.org/10.1136/bmj.319.7223.1457">Blair 1999</a>). The exposure that matters is the unplanned 4 am transfer, made when tiredness peaks, into a bed nobody prepared. Room-sharers have four times the odds of exactly that (<a class="c" href="https://doi.org/10.1542/peds.2017-0122">Paul 2017</a>).</p>
+    <p><span class="st judgement">Judgement</span> Decide each evening. Either the bed is set up and both adults are sober and rested, in which case bringing her in after the night feed is a defensible choice on current evidence, or it is not, in which case she goes back to the crib without exception. The mother returns her to the crib if she herself feels unusually depleted. A mother who nurses at the breast at night and has bed-shared before plausibly keeps the protective behaviours; the parent who gives a bottle should not be the one beside her.</p>
+  </div>
+</section>
+
+<!-- ===================== PLATE V ===================== -->
+<section class="plate" id="plate-5" data-plate="V" data-short="The bassinet line">
+  <div class="plate-head"><span class="plate-no">Plate V</span><h2>The bassinet standard ends at rolling or hands-and-knees, so move her now</h2></div>
+
+  <figure class="fig" aria-labelledby="bas-t">
+    <p class="fig-title" id="bas-t">Where each sleep surface's rating ends</p>
+    <p class="fig-sub">Bars run from birth to the stop point printed in the standard or label. The stop points are conditions, not ages; the age shown is the approximate cap.</p>
+    <div class="legend"><span><i class="sw" style="background:var(--day);width:3px;height:14px"></i>Her age now, already rolling</span></div>
+    <div data-lanes></div>
+    <figcaption>Bassinet scope quoted from ASTM F2194 as incorporated in 16 CFR 1218 (<a href="https://law.resource.org/pub/us/cfr/ibr/003/astm.f2194.2013.html">ASTM F2194-13</a>); manufacturer language from <a href="https://www.chiccousa.com/baby-talk/what-to-look-for-in-a-bassinet/">Chicco</a> and an <a href="https://www.evenflo.com/cdn/shop/files/aeris_EN.pdf">Evenflo manual</a>; bedside sleepers, <a href="https://store.astm.org/f2906-23.html">ASTM F2906</a>; SNOO indication from its <a href="https://www.biospace.com/snoo-is-granted-fda-de-novo-approval-for-keeping-sleeping-babies-safely-positioned-on-the-back">De Novo authorisation</a>; cribs, mini cribs and play yards, <a href="https://www.ecfr.gov/current/title-16/chapter-II/subchapter-B">16 CFR 1219–1221</a>.</figcaption>
+  </figure>
+
+  <div class="prose">
+    <p>The federal bassinet rule incorporates ASTM F2194, whose scope is sleep "for an infant up to approximately 5 months in age or when the child begins to push up on hands and knees, whichever comes first", with a required fall-hazard warning at that point or at the maker's weight limit. Weight limits are typically 15–20 lb. Some manufacturers set the stop earlier: Chicco says to stop once the baby can roll over or push up "even if they have not yet reached the maximum weight limit", and an Evenflo bassinet insert says stop when the baby can "push up on hands and knees or can roll over".</p>
+    <p>The mechanism is physical. Shallow sides and a high centre of gravity make falls and tip-overs possible once she pushes up, and a small soft-sided space lets a rolled infant end up face-against-side or in a corner, worsened by any tilt. CPSC logged more than 200 bassinet incidents, including 7 deaths, from 2017 to 2022 (<a class="c" href="https://advocacy.consumerreports.org/press_release/consumer-reports-statement-updated-safety-rule-for-bassinets-would-help-keep-babies-safe-when-sleeping/">Consumer Reports 2024</a>). Limits of this evidence: no count of deaths specific to rolling in an over-age bassinet was found, no study compares bassinets with cribs by age, and the wording of the 2025 standard update could not be verified.</p>
+    <p><span class="st judgement">Judgement</span> The direction is not in doubt, and the most permissive reading of her model's label buys a few weeks at most. Read the label tonight; if it names rolling, she is already past it.</p>
+    <p>The compliant replacements that keep her in your room are a <b>full-size crib (16 CFR 1219), a mini crib (16 CFR 1220) or a play yard (16 CFR 1221)</b>, each with the manufacturer's flat mattress or pad, a fitted sheet and nothing else. Mini cribs and play yards are rated until the child reaches 35 inches or can climb out, which covers the whole first year (<a class="c" href="https://store.astm.org/f0406-05.html">ASTM F406</a>). A bedside sleeper does not solve the problem, because its standard carries the same 5-month, hands-and-knees limit (<a class="c" href="https://store.astm.org/f2906-23.html">ASTM F2906</a>); neither does a SNOO, in-bed sleeper, pod or nest.</p>
+  </div>
+</section>
+
+<!-- ===================== PLATE VI ===================== -->
+<section class="plate" id="plate-6" data-plate="VI" data-short="Hazard rules">
+  <div class="plate-head"><span class="plate-no">Plate VI</span><h2>The hazard rules no amount of experience, money or attention relaxes</h2></div>
+  <div class="tablewrap">
+    <table class="rules">
+      <thead><tr><th>Rule</th><th>Evidence</th><th>For this household</th></tr></thead>
+      <tbody>
+        <tr><td data-l="Rule">On her back for every sleep, by every caregiver. If she rolls both ways on her own, leave her as she lies.</td><td data-l="Evidence">Prone placement OR 13.1 (8.5–20.2) in 745 cases (<a class="c" href="https://doi.org/10.1016/s0140-6736%2803%2915323-8">Carpenter 2004</a>); infants unused to prone are at highest risk.</td><td data-l="For this household">Applies to nanny naps as much as nights.</td></tr>
+        <tr><td data-l="Rule">Sleep space firm, flat (10° or less), bare, purpose-built. No pillows, blankets, bumpers, positioners or toys.</td><td data-l="Evidence">Soft bedding aOR 5.0 (unexplained death) and 16.3 (suffocation) at 2–9 months (<a class="c" href="https://doi.org/10.1542/peds.2022-057771">Parks 2023</a>); head covered by bedding, pooled aOR 16.9 (<a class="c" href="https://doi.org/10.1136/adc.2007.136366">Blair 2008</a>).</td><td data-l="For this household">The dominant modifiable hazard now that she rolls.</td></tr>
+        <tr><td data-l="Rule">No swaddle; arms-free wearable blanket; nothing weighted.</td><td data-l="Evidence">Swaddled and prone OR 12.99 (4.14–40.77) (<a class="c" href="https://doi.org/10.1542/peds.2015-3275">Pease 2016</a>). Weighted sleepwear opposed by AAP, CPSC, CDC and NIH (<a class="c" href="https://www.nprillinois.org/2024-08-06/u-s-lawmakers-urge-banning-weighted-infant-sleepwear-over-safety-concerns">NPR 2024</a>).</td><td data-l="For this household">Should already be in effect.</td></tr>
+        <tr><td data-l="Rule">Never sleep with her on a sofa, armchair or recliner.</td><td data-l="Evidence">OR 18.3 at all ages; AAP "up to 67 times"; 12.9% of sleep-related deaths in 24 states occurred on sofas (<a class="c" href="https://doi.org/10.1542/peds.2014-1543">Rechtman 2014</a>).</td><td data-l="For this household">If an adult must sleep, a prepared bed is far safer. Families told never to bed-share have fed, and fallen asleep, on sofas instead.</td></tr>
+        <tr><td data-l="Rule">No bed-sharing if either adult has had 2 or more units of alcohol, any sedating medication, cannabis or other drugs, or is unusually exhausted.</td><td data-l="Evidence">Alcohol OR 18.3; recent alcohol or drugs in 31% of SIDS co-sleepers vs 3% of controls (<a class="c" href="https://doi.org/10.1136/bmj.b3666">Blair 2009</a>); AAP: more than 10 times for fatigue or sedation.</td><td data-l="For this household">Binds both adults. Experienced bed-sharers are the group most likely to discount it. On such nights she stays in her crib all night.</td></tr>
+        <tr><td data-l="Rule">Smoke-free home; no bed-sharing with a smoker.</td><td data-l="Evidence">Prenatal smoking aOR 2.44 in 20.7 million births (<a class="c" href="https://doi.org/10.1542/peds.2018-3325">Anderson 2019</a>).</td><td data-l="For this household">Applies to visitors and staff.</td></tr>
+        <tr><td data-l="Rule">Adult bed, if used: firm mattress; pulled away from walls or gaps closed; pillows and duvet away from her; on her back beside the nursing mother at breast height, not between two adults; no other children or pets; light clothing, no hat; never left alone on it.</td><td data-l="Evidence">Targets the mechanisms in the suffocation series: wedging, adult bedding, overlay by siblings (22% of overlays) or fathers (25%). Consistent across NICE, the Lullaby Trust, the Academy of Breastfeeding Medicine and Red Nose (<a class="c" href="https://doi.org/10.1089/bfm.2019.29144.psb">ABM Protocol 6</a>; <a class="c" href="https://rednose.org.au/downloads/RN0493_23_Co-Sleeping.pdf">Red Nose</a>). On lying between parents, Red Nose says never; ABM says evidence is insufficient.</td><td data-l="For this household">A rolling baby left alone on an adult bed can wedge or fall within minutes.</td></tr>
+        <tr><td data-l="Rule">Car seats, strollers, swings, bouncers, loungers, nursing pillows and anything inclined are not sleep surfaces.</td><td data-l="Evidence">348 of 11,779 sleep-related deaths in sitting devices, 63% in car seats, half of those at home (<a class="c" href="https://doi.org/10.1542/peds.2018-2576">Liaw 2019</a>). Nursing pillows: 154 deaths 2010–2022, 142 during sleep (<a class="c" href="https://www.federalregister.gov/documents/2024/10/25/2024-24403/safety-standard-for-nursing-pillows">CPSC</a>).</td><td data-l="For this household">If she falls asleep in one, move her to the crib on arrival.</td></tr>
+        <tr><td data-l="Rule">Contact naps only on an adult who is awake and alert, her face visible, chin off chest; the nap ends, or she is transferred, before the holder dozes.</td><td data-l="Evidence">Derived, not measured: supervised daytime sleep is protective (unsupervised daytime sleep OR 10.57, <a class="c" href="https://doi.org/10.1093/ije/dyl212">Blair 2006</a>), and adult sleep in a chair is the top hazard. No study quantifies risk on an awake holder.</td><td data-l="For this household">The holder's alertness is the only barrier.</td></tr>
+        <tr><td data-l="Rule">Carriers: tight, in view, close enough to kiss, chin off chest, back supported; no hands-free feeding.</td><td data-l="Evidence">5 sling deaths among 47 sitting or carrying device deaths, all but one asphyxia (<a class="c" href="https://doi.org/10.1016/j.jpeds.2015.03.044">Batra 2015</a>).</td><td data-l="For this household">Upright carrier naps lower the drowsy-holder risk.</td></tr>
+        <tr><td data-l="Rule">Avoid over-bundling and head covering; keep breast milk going; immunise on schedule.</td><td data-l="Evidence">RR 1.26 per excess tog (<a class="c" href="https://doi.org/10.1136/bmj.304.6822.277">Ponsonby 1992</a>); breast milk for 4–6 months aOR 0.40, beyond 6 months 0.36 (<a class="c" href="https://doi.org/10.1542/peds.2017-1324">Thompson 2017</a>); immunisation OR 0.54 (<a class="c" href="https://doi.org/10.1016/j.vaccine.2007.02.077">Vennemann 2007</a>).</td><td data-l="For this household">Whether pumped milk carries the same protection has never been studied.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===================== PLATE VII ===================== -->
+<section class="plate" id="plate-7" data-plate="VII" data-short="Caregiver protocol">
+  <div class="plate-head"><span class="plate-no">Plate VII</span><h2>One written protocol, the same for every caregiver</h2></div>
+  <div class="prose">
+    <p>Sitting-device deaths were 2.8 times as likely (95% CI 1.5–5.2) under a child-care provider's supervision, and 2.0 times under a babysitter's, as under a parent's (<a class="c" href="https://doi.org/10.1542/peds.2018-2576">Liaw 2019</a>). A new or unusual sleep location was 6.5 times as common in sofa deaths (<a class="c" href="https://doi.org/10.1542/peds.2014-1543">Rechtman 2014</a>). A hired caregiver holding a sleeping infant for two to three hours a day in a comfortable chair is a foreseeable drowsiness scenario. Hand this card over, and run it yourselves.</p>
+  </div>
+  <div class="card" id="caregiver-card">
+    <h3>Sleep rules for anyone caring for her</h3>
+    <p class="for">Every sleep, every caregiver, no exceptions.</p>
+    <ul>
+      <li><span><b>Every sleep starts on her back</b> in the crib or play yard, in an arms-free sleep sack, with nothing else in it. No swaddle. Nothing weighted.</span></li>
+      <li><span><b>Contact naps only while you are fully alert</b>, sitting upright, with her face visible. At the first heaviness of your eyelids, put her down on her back or hand her to a parent. Saying so is expected and never penalised.</span></li>
+      <li><span><b>Never a contact nap lying back on a sofa or recliner.</b></span></li>
+      <li><span><b>No alcohol, cannabis or sedating medication</b> while caring for her.</span></li>
+      <li><span><b>In a carrier:</b> face visible, chin off her chest, close enough to kiss. No hands-free feeding.</span></li>
+      <li><span><b>Asleep in the car seat or stroller?</b> Move her to the crib when you arrive. Never leave her sleeping in a car seat indoors, a swing, on a nursing pillow or lounger, or on an adult bed.</span></li>
+      <li><span><b>If she rolls onto her front by herself, leave her there.</b> Always start her on her back.</span></li>
+      <li><span><b>Same bedtime routine</b>, same steps, same order as the parents.</span></li>
+      <li><span><b>Nap ends at about 45 minutes?</b> If she wakes content, the nap is over. If she wakes upset, rock her on.</span></li>
+      <li><span><b>Stirring, grunting or a brief call:</b> wait 2–4 minutes. <b>Real crying:</b> go at once.</span></li>
+    </ul>
+    <div class="act"><button class="btn" type="button" data-print-card>Print this card</button><span class="note">Prints the card alone, on one page.</span></div>
+  </div>
+</section>
+
+<!-- ===================== PLATE VIII ===================== -->
+<section class="plate" id="plate-8" data-plate="VIII" data-short="Her settings now">
+  <div class="plate-head"><span class="plate-no">Plate VIII</span><h2>Change little, because nothing is broken</h2></div>
+  <div class="prose" style="margin-bottom:26px">
+    <p>Her pattern (an 11-hour night with one feed and immediate resettling, 45-minute contact naps) is at or above the reference mean on every available measure, and every sleep-intervention efficacy trial enrolled infants with a parent-reported problem she does not have. The settings below are mostly "keep", each with its reason and evidence class.</p>
+  </div>
+  <div class="kcs">
+    <div><h3><i class="mk" style="background:var(--sleep)"></i>Keep</h3><ul><li>Feeding or rocking her fully to sleep</li><li>Contact naps, under the awake-holder rule</li><li>8:30 pm bedtime, 7:30 am wake</li><li>The one night feed</li><li>Her own surface in your room to about 6 months</li></ul></div>
+    <div><h3><i class="mk" style="background:var(--hazard)"></i>Change</h3><ul><li>Bassinet to crib, mini crib or play yard</li><li>Adult bed prepared nightly; per-night go/no-go</li><li>Written caregiver protocol</li><li>Pumped milk labelled and fed by time of day</li><li>Ferritin and haemoglobin measured</li></ul></div>
+    <div><h3><i class="mk" style="background:var(--day)"></i>Stop</h3><ul><li>Rocking through every 45-minute arousal by default</li><li>Answering non-distress sounds instantly</li><li>Continuous tracking and oxygen or heart-rate wearables</li><li>Overnight pumping to bank "night milk"</li><li>Iron drops without a measured deficiency</li></ul></div>
+  </div>
+
+  <div class="setting"><h3>Night location<span class="call">Room-share to ~6 months; preference after</span></h3><div class="prose"><p>Keep her in your room on her own surface to about 6 months: the old case-control data are consistent, the mechanism (lighter sleep and faster adult response near parents) is plausible, and a quarter of sudden deaths occur at 4–6 months. From 6 to 12 months no age-specific evidence exists in either direction. <span class="st modelled">Modelled</span> If her residual risk over months 6–12 is 1–3 per 100,000, even a true halving from room-sharing is worth about 1 per 100,000. The measured cost of room-sharing falls on maternal sleep, not infant sleep (<a class="c" href="https://doi.org/10.1016/j.sleep.2015.08.016">Volkovich 2015</a>), and more weeks of room-sharing in months 0–6 showed no relation to sleep or behaviour problems at ages 6–8 in 193 Dutch children (<a class="c" href="https://doi.org/10.1111/cdev.13146">Beijers 2019</a>). After 6 months, stay if it costs you nothing.</p></div></div>
+
+  <div class="setting"><h3>Night feed<span class="call">Keep it</span></h3><div class="prose"><p>One feed at 4 months is normal; about 60% of 6–12-month-olds still take one (<a class="c" href="https://doi.org/10.1089/bfm.2014.0153">Brown &amp; Harries 2015</a>), and night weaning was not associated with longer night sleep in 193 infants followed to 52 weeks (<a class="c" href="https://pubmed.ncbi.nlm.nih.gov/42280297/">Olson 2026</a>). Feed in near-darkness, under dim warm light, with minimal interaction; nursing directly delivers time-matched milk automatically. Before lifting her, confirm she is awake and asking: infants vocalise in active sleep, and in a London video cohort a short pause before feeding in the early weeks was the only "limit-setting" component that predicted long night sleep at 3 months (<a class="c" href="https://doi.org/10.1017/s1463423616000451">St James-Roberts 2017</a>).</p></div></div>
+
+  <div class="setting"><h3>Sleep onset<span class="call">Keep feeding and rocking; two free hedges</span></h3><div class="prose"><p>Feeding or rocking her fully to sleep has no demonstrated cost to her. Blind-coded bedtime video found specific maternal settling behaviours unrelated to infant sleep disruption once age was controlled, while the caregiver's emotional availability was related (<a class="c" href="https://doi.org/10.1037/a0019306">Teti 2010</a>). The cost, if it arrives, falls on the parents: a higher chance of more signalled waking between 6 and 12 months. The trials that taught the alternative gained 22–35 parent-reported minutes that were gone by 12 months.</p><p><span class="st judgement">Judgement</span> Two zero-cost hedges. Move the feed to the start of the routine and finish with rocking, which mirrors the one observational pointer that low bedtime nursing goes with faster consolidation (<a class="c" href="https://doi.org/10.1037/fam0000198">Philbrook &amp; Teti 2016</a>). And a few times a week, when she is calm, put her down drowsy; if she protests beyond mild fussing, pick her up and finish as usual. Nothing in the evidence says persisting through distress benefits her, and she is below the age at which any professional body endorses extinction methods.</p></div></div>
+
+  <div class="setting"><h3>Naps<span class="call">Contact naps fine; stop extending by default</span></h3><div class="prose"><p>Contact naps can continue as long as the awake-holder rule can be honoured; the evidence supplies no developmental argument for or against them. Stop extending the 45-minute nap by default. A 45-minute nap is one sleep cycle (infant cycles run 50–60 minutes, range 30–70, <a class="c" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4773630/">Grigg-Damberger 2016</a>); the nap-and-memory experiments got their effects with naps averaging 45 minutes (<a class="c" href="https://doi.org/10.1038/ncomms7004">Friedrich 2015</a>); nap duration did not predict retention (<a class="c" href="https://doi.org/10.1073/pnas.1414000112">Seehagen 2015</a>); her 24-hour total is already mid-range; and unassisted lengthening is expected from 5–6 months. Her state is the only readout: if she wakes content, the nap is over; if she wakes crying or stays irritable through the next wake period, rock her on.</p><p>Twin data make daytime sleep the most environment-shaped part of infant sleep (shared environment 57–61% at 15–18 months, <a class="c" href="https://doi.org/10.1542/peds.2011-1571">Fisher 2012</a>; <a class="c" href="https://doi.org/10.1542/peds.2010-0858">Brescianini 2011</a>), so naps will take whatever shape the household gives them. <span class="st judgement">Judgement</span> If you want optionality, one low-stakes cot put-down a day at the first nap, when sleep pressure is highest, preserves it; before 6 months that nap happens in a room with an awake adult. For transfers, the one physiological study (about 21 crying infants, per press summaries; authors hold a related patent application) found 5 minutes of steady walking induced sleep, infants laid down before about 8 minutes of sleep often woke, and the arousal trigger was detachment from the adult's body rather than contact with the mattress (<a class="c" href="https://doi.org/10.1016/j.cub.2022.08.041">Ohmura 2022</a>): walk, then sit still 5–8 minutes, then separate slowly.</p></div></div>
+
+  <div class="setting"><h3>Pumped milk<span class="call">Label by clock time; match the bin</span></h3><div>
+    <div class="prose"><p>Milk composition cycles: melatonin peaks near 47 pg/mL around midnight and is undetectable by day; cortisol peaks in the early morning (83 reports, <a class="c" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7468880">Italianer 2020</a>). Infant-outcome evidence is one anonymous survey of 329 mothers linking mistimed milk to later sleep onset (<a class="c" href="https://pubmed.ncbi.nlm.nih.gov/36137055/">Booker 2022</a>) and one null (<a class="c" href="https://pubmed.ncbi.nlm.nih.gov/32274700/">Toorop 2020</a>). <span class="st modelled">Modelled</span> A 150 mL night feed carries 13–30 pmol of melatonin against roughly 2,970 pmol per 24 hours that the infant excretes once her own rhythm runs (<a class="c" href="https://doi.org/10.1210/jcem.75.2.1639937">Kennaway 1992</a>): 1% or less. Whether refrigeration or freezing preserves the signals is unknown.</p></div>
+    <div class="dialwrap">
+      <svg class="dial" data-dial viewBox="0 0 260 240" role="img" aria-label="24-hour dial divided into four pumping bins: 5 to 11 am, 11 am to 5 pm, 5 to 10 pm, 10 pm to 5 am"></svg>
+      <ul class="binlist">
+        <li><i class="sw" style="background:var(--day)"></i><span><b>05:00–11:00, morning.</b> Cortisol peak, no melatonin. Not for bedtime or overnight bottles.</span></li>
+        <li><i class="sw" style="background:var(--day);opacity:.45"></i><span><b>11:00–17:00, day.</b> Day bottles.</span></li>
+        <li><i class="sw" style="background:var(--sleep);opacity:.55"></i><span><b>17:00–22:00, evening.</b> The bedtime bottle.</span></li>
+        <li><i class="sw" style="background:var(--sleep)"></i><span><b>22:00–05:00, night.</b> Melatonin present. Overnight bottles; never the first morning feed.</span></li>
+      </ul>
+    </div>
+    <div class="prose"><p>If no evening milk is available for a bedtime bottle, nurse. Do not pump overnight to bank night milk: that trades maternal sleep, which feeds through to bedtime emotional availability and attachment security in 153 mothers (<a class="c" href="https://doi.org/10.1037/dev0001327">Bai 2022</a>), for a melatonin contribution near 1% of her own. Milk after maternal alcohol at about 0.3 g/kg reduced infants' active sleep over the next 3.5 hours in a 23-infant experiment (<a class="c" href="https://pubmed.ncbi.nlm.nih.gov/11839458/">Mennella &amp; Garcia-Gomez 2001</a>); maternal caffeine showed no significant association with night waking in 885 infants (<a class="c" href="https://pubmed.ncbi.nlm.nih.gov/22473365/">Santos 2012</a>).</p></div>
+  </div></div>
+
+  <div class="setting"><h3>Light, timing, routine<span class="call">Hold the wake time; bright days, dim evenings</span></h3><div class="prose"><p>Hold the 7:30 am wake time: wake time is the fixed end of infant sleep, and timing is the one sleep dimension that tracks across the first year (rank correlation 0.55 from 3 to 12 months, against 0.24 for night sleep duration, <a class="c" href="https://doi.org/10.3390/s20247188">Schoch 2020</a>). Leave bedtime at 8:30 pm; national mean bedtimes span 19:27 to 22:17 (<a class="c" href="https://doi.org/10.1016/j.sleep.2009.04.012">Mindell 2010</a>). Give her bright daylight in wake periods, outdoors in the early afternoon where possible; young infants spent only one-eighth of daytime hours above 100 lux in the one home study (<a class="c" href="https://doi.org/10.1111/j.1365-2648.2011.05857.x">Tsai 2012</a>). Keep the last hour before bed and all night feeds dim and warm-toned; no lux threshold has been validated in infants. Dark naps are stimulus reduction, not circadian manipulation, and are fine. The routine is 20–30 minutes, same steps in the same order, ending in the sleep space, run identically by parents and nanny.</p></div></div>
+
+  <div class="setting"><h3>Iron, pacifier, sound, tracking<span class="call">Measure, don't guess</span></h3><div class="prose"><p>Measure ferritin and haemoglobin now. If she is replete, skip drops and start iron-rich foods (meat or fortified foods) at about 6 months; if she is low, supplement. In one trial, infants with haemoglobin under 110 g/L benefited from iron while replete infants given iron grew less (<a class="c" href="https://pubmed.ncbi.nlm.nih.gov/12421836/">Dewey 2002</a>), and 1 mg/kg/day from 4 to 9 months in 221 non-anaemic breastfed infants changed no Bayley score to 36 months (<a class="c" href="https://pubmed.ncbi.nlm.nih.gov/38739382/">Svensson 2024</a>). Vitamin D above the standard 400 IU does not improve sleep (<a class="c" href="https://pubmed.ncbi.nlm.nih.gov/41887120/">Seppälä 2026</a>).</p><p>A pacifier at sleep onset is optional and need not be replaced when it falls out; from 6 months, limiting it to sleep times cut ear infections by 29% in one cluster trial (<a class="c" href="https://pubmed.ncbi.nlm.nih.gov/10969091/">Niemelä 2000</a>). If she finds her fingers, leave her to it. A sound machine, if used, sits across the room and reads no more than about 50 dBA at the crib (all 14 machines tested exceeded 50 dBA at 30 cm at full volume, <a class="c" href="https://doi.org/10.1542/peds.2013-3617">Hugh 2014</a>). Track sleep only for a week or two when testing a specific change: night-to-night variation within one infant is 40–45 minutes (SD) at this age, and continuous tracking converts that noise into false signals. A video monitor is useful because it shows unsignalled waking and resettling; an oxygen or heart-rate wearable is not.</p></div></div>
+</section>
+
+<!-- ===================== PLATE IX ===================== -->
+<section class="plate" id="plate-9" data-plate="IX" data-short="The year ahead">
+  <div class="plate-head"><span class="plate-no">Plate IX</span><h2>What changes between now and her first birthday</h2></div>
+  <div class="prose">
+    <p>Rank-order stability of infant sleep is weak beyond a few months: night sleep at 3 months correlates 0.53 with 6 months and 0.24 with 12 months (<a class="c" href="https://doi.org/10.3390/s20247188">Schoch 2020</a>). A good 4-month sleeper is likely to stay in the low-problem majority: in one birth cohort, 6% of infants without an early sleep problem had one in the third year, against 21% of those with one (<a class="c" href="https://doi.org/10.1542/peds.2011-0372">Byars 2012</a>). <span class="st modelled">Modelled</span> Prevalence shifts between 3 and 9 months imply that between one in five and one in three settled infants has a noticeable stretch of more waking in the second half-year; no cohort reports that fraction directly. Lasting relapse after 6 months was rare in the one cohort that tracked it (1 of 29, <a class="c" href="https://doi.org/10.2147/NSS.S240075">Henderson 2020</a>).</p>
+  </div>
+
+  <figure class="fig" aria-labelledby="tl-t">
+    <p class="fig-title" id="tl-t">Months 4 to 12, on one axis</p>
+    <p class="fig-sub">Bands are typical windows from the cited cohorts, not deadlines. The amber line is now. Hover or focus any item for its source.</p>
+    <div class="tl-scroll"><div class="tl" data-timeline></div></div>
+  </figure>
+
+  <div class="tablewrap">
+    <table class="stagetable">
+      <thead><tr><th>Stage</th><th>What to expect</th><th>What to do</th><th>What not to do</th></tr></thead>
+      <tbody>
+        <tr><td data-l="Stage">4–6 months<br><small style="font-weight:400;color:var(--muted)">now to about December 2026</small></td><td data-l="What to expect">3–4 naps, individually short; nap length reaches its minimum near 5 months. Slow-wave sleep differentiates from about week 21. Mean night sleep 9.5–10 h with 1–2 noticed wakings; she is above this. Pushing up and sitting emerge.</td><td data-l="What to do">Crib transition now. Room-share. Iron status measured. Solids at about 6 months on readiness, iron and allergy grounds.</td><td data-l="What not to do">No extinction-type training: unsupported under 6 months and no indication. Don't expect solids to change her nights (+16.6 minutes at best, <a class="c" href="https://openaccess.sgul.ac.uk/id/eprint/110002/1/jamapediatrics_Perkin_2018_oi_180019.pdf">Perkin 2018</a>).</td></tr>
+        <tr><td data-l="Stage">6–9 months<br><small style="font-weight:400;color:var(--muted)">about December to March</small></td><td data-l="What to expect">Three naps become two (72% take two at 8 months). Crawling onset, mean about 7 months, is time-linked to more long wake episodes (<a class="c" href="https://doi.org/10.1111/mono.12145">Scher &amp; Cohen 2015</a>). Parent-rated sleep problems peak near 40% at 8 months. About 60% still take a night feed. Wedging deaths peak at 5–8 months; overlay deaths essentially absent after 7. Infants retrieve their own pacifier from about 7 months.</td><td data-l="What to do">Room-sharing becomes a preference. Re-check the adult bed for gaps. Ride through the motor-milestone bump without changing the system. Once teeth erupt, clean them before the last feed and keep other sugars away from sleep. Pacifier for sleep only.</td><td data-l="What not to do">Don't attribute waking to teething. Don't read a transient as a failed method. Don't night-wean for her sake.</td></tr>
+        <tr><td data-l="Stage">9–12 months<br><small style="font-weight:400;color:var(--muted)">about March to June 2027</small></td><td data-l="What to expect">Two naps established, about 2.5–3 h of day sleep; about 10–10.5 h of night sleep, 11.2–11.7 h in bed; longest wake bout near 5 h. Pulling to stand disrupts sleep in early achievers (<a class="c" href="https://doi.org/10.1016/j.infbeh.2015.11.003">Atun-Einy &amp; Scher 2016</a>). At 12 months 28% don't sleep 6 h straight and 43% don't sleep 8 h. The two-to-one nap transition belongs to months 15–24.</td><td data-l="What to do">Decide whether 2.5–3 h a day of contact napping remains workable under the awake-holder rule. The night feed remains normal; breastfeeding up to 12 months goes with fewer caries, not more (OR 0.50, <a class="c" href="https://pubmed.ncbi.nlm.nih.gov/26206663/">Tham 2015</a>). Respect the mini crib or play-yard limit.</td><td data-l="What not to do">Don't treat continued night waking as a developmental signal; it is not one.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===================== PLATE X ===================== -->
+<section class="plate" id="plate-10" data-plate="X" data-short="Decision rules">
+  <div class="plate-head"><span class="plate-no">Plate X</span><h2>If this happens, do this, not that</h2></div>
+  <div class="rulehead"><div>If</div><div>Do</div><div>Don't</div><div>Basis</div></div>
+  <div class="rulelist" data-rules></div>
+</section>
+
+<!-- ===================== PLATE XI ===================== -->
+<section class="plate" id="plate-11" data-plate="XI" data-short="Unlimited attention">
+  <div class="plate-head"><span class="plate-no">Plate XI</span><h2>The one risk of unlimited attention: answering sounds that aren't requests</h2></div>
+  <div class="prose">
+    <p>Video and actigraphy agree that essentially all infants wake two to four times a night throughout the first year; 78–90% of those awakenings are vocalised, and the commonest single pattern is "vocalised, no intervention" (<a class="c" href="https://doi.org/10.1097/00004703-200108000-00003">Goodlin-Jones 2001</a>). What separates "good" from "poor" sleepers is whether a parent arrives.</p>
+  </div>
+
+  <figure class="fig" aria-labelledby="lat-t">
+    <p class="fig-title" id="lat-t">How long parents take to respond at night, in minutes</p>
+    <p class="fig-sub">Unaided resettling was observed in families whose response took 3–4 minutes. Parents sleeping within arm's reach, with no next-day cost, respond in close to zero.</p>
+    <div class="legend"><span><i class="sw" style="background:var(--sleep);width:10px;height:10px;border-radius:50%"></i>Mean response or fuss time</span><span><i class="sw" style="background:var(--day-wash);border:1px solid var(--day)"></i>Pause 2–4 minutes for stirring and brief calls; go at once for real crying</span></div>
+    <div data-latency></div>
+    <figcaption>Sources: <a href="https://pubmed.ncbi.nlm.nih.gov/27609027/">St James-Roberts 2016</a>; <a href="https://doi.org/10.1111/1469-7610.00076">Burnham 2002</a>. The near-zero row is a judgement about this household, not a measurement.</figcaption>
+  </figure>
+
+  <div class="prose">
+    <p>Four observational findings point the same way. In 107 families filmed at 1 and 3 months, more responses to infant distress went with a steeper decline in night waking to 9 months, while in solitary sleepers more interventions when the infant was not distressed, or was asleep, went with a slower decline (<a class="c" href="https://doi.org/10.1016/j.sleep.2018.07.013">Voltaire &amp; Teti 2018</a>). In 80 infants filmed across the year, longer parental response time at 3 months (mean 3.3 minutes) was one of three predictors of unaided resettling at 12 months (<a class="c" href="https://doi.org/10.1111/1469-7610.00076">Burnham 2002</a>). Bedtime involvement at 4 months predicted rising night wakings to 8 months in 207 families (<a class="c" href="https://doi.org/10.1016/j.sleep.2025.02.017">Matzliach 2025</a>). In camera data from 3,158 infants, each additional parental crib visit raised the odds of the parent perceiving a sleep problem by 18% (Nanit-funded, cross-sectional, <a class="c" href="https://doi.org/10.1016/j.sleep.2025.106710">Kahn 2025</a>).</p>
+    <p><b>Evidence level: low to moderate.</b> All of it is observational, and part of it runs backwards, since poorly sleeping infants draw parents in (<a class="c" href="https://doi.org/10.1001/archpedi.162.4.360">Simard 2008</a>). No trial has assigned "respond instantly" against "pause briefly", and the outcome at stake is signalled waking, which is the parents' experience, with no demonstrated bearing on her long-term development. The rule is still cheap and contradicts nothing: impose the pause deliberately for stirring, grunting and brief calls, and respond without delay to real crying. This is not extinction, and no source shows it harms.</p>
+    <p>The same error has other forms in a high-resource household, each buying nothing measurable: rocking through every 45-minute arousal by default; continuous tracking and physiological wearables (5% of 1,128 coded product reviews described adult stress, fear or lost sleep from false alarms, <a class="c" data-bib="medRxiv 2025 preprint, infant monitor reviews (not peer-reviewed)" href="https://www.medrxiv.org/content/10.1101/2025.05.26.25328367.full.pdf">preprint, not peer-reviewed</a>); iron drops without a measured deficiency; overnight pumping to match milk; keeping her awake to hit a schedule; and rebuilding the routine in response to a two-week motor-milestone disruption. Effort has far better-evidenced targets in her waking hours.</p>
+  </div>
+  <h3>Ignore outright</h3>
+  <div class="pills"><span>Wake-window charts</span><span>Regression calendars</span><span>"Sleep begets sleep"</span><span>The 7 pm rule</span><span>TOG tables</span><span>Sleep-through milestones</span><span>Formula or cereal top-ups</span><span>Teething explanations</span><span>Smart bassinets and oximeters</span><span>Any deadline for independent sleep</span><span>Harm claims from either camp</span></div>
+</section>
+
+<!-- ===================== PLATE XII ===================== -->
+<section class="plate" id="plate-12" data-plate="XII" data-short="What will move">
+  <div class="plate-head"><span class="plate-no">Plate XII</span><h2>What is unknown, and which positions will move</h2></div>
+  <div class="prose" style="margin-bottom:22px"><p>The unknowns sit exactly where this family's discretionary choices sit.</p></div>
+  <ul class="unknowns">
+    <li>No study has compared contact naps with cot naps in term infants on nap length, sleep architecture, night sleep or later independence, and none has tested extending a short nap.</li>
+    <li>No study has followed infants who sleep well at 4 months while fully parent-assisted to see how many later signal more, or whether onset method predicts it independently of temperament and feeding.</li>
+    <li>No randomised trial has isolated "drowsy but awake", assigned a response delay, time-matched pumped milk, manipulated light or bedtime in term infants, or randomised sleep location.</li>
+    <li>Melatonin suppression by evening light has never been measured under 12 months.</li>
+    <li>The effect of sleep training on observed attachment, emotion regulation or neurodevelopment is unknown at the 0.1–0.3 SD scale, in temperamentally reactive subgroups, for training begun at 4–6 months, and past age 6. The acute physiology of the first nights has been sampled in 4–7 infants per arm.</li>
+    <li>The risk of suffocation or entrapment in a deliberately prepared adult bed at 4–12 months is unquantified; bed-sharing after bottle-feeding pumped milk is unstudied; no hazard- and age-stratified case-control study of bed-sharing exists from post-2015 data.</li>
+    <li>No dose-response study relates objectively measured sleep at 4–12 months to later outcomes, which is why the official 12–16-hour recommendation is expert consensus anchored on normative averages; the AASM panel found "few studies" for this age band (<a class="c" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5078711/">Paruthi 2016</a>).</li>
+    <li>No Mendelian-randomisation or sibling-comparison study of first-year sleep exists. Nothing in SIDS biology is usable yet: the 2022 butyrylcholinesterase finding rests on 26 cases with no threshold, sensitivity or replication (<a class="c" href="https://doi.org/10.1016/j.ebiom.2022.104041">Harrington 2022</a>).</li>
+  </ul>
+
+  <h3>Likelihood of revision</h3>
+  <p class="count-line" style="max-width:70ch">Reasoned forecasts from the audit features in <a href="#plate-3">Plate III</a>, not findings. No AAP safe-sleep revision after 2022 was found as of October 2026.</p>
+  <div class="rev" data-rev></div>
+
+  <div class="callout prose" style="margin-top:48px">
+    <h3>What would change this answer</h3>
+    <p>A problem you yourselves define after 6 months; persistent short total sleep or frequent distress waking; signs of sleep-disordered breathing or iron deficiency; or new large-sample objective data (the HBCD cohort is collecting objective first-year sleep for later outcome analysis, <a class="c" href="https://doi.org/10.1016/j.dcn.2024.101446">Pini 2024</a>). Absent those, the right amount of additional sleep engineering for her is close to none. Unlimited time converts into advantage in two places only: keeping the safety rules at the moments constrained parents break them, and waking-hours interaction, where the measured effects are an order of magnitude larger than anything in the sleep literature.</p>
+  </div>
+</section>
+
+<!-- ===================== SOURCES ===================== -->
+<section class="plate" id="sources" data-plate="—" data-short="Sources">
+  <div class="plate-head"><span class="plate-no">Sources</span><h2>Every source cited on this page</h2></div>
+  <p class="count-line" style="max-width:72ch">Built from the links above. The AAP 2022 policy statement and technical report were not readable in full (positions taken from the <a href="https://doi.org/10.1542/peds.2022-057990">abstract</a>, <a href="https://healthychildren.org/English/ages-stages/baby/sleep/Pages/a-parents-guide-to-safe-sleep.aspx">HealthyChildren.org</a> and quotations); several trial details come from abstracts only; studies funded by Johnson &amp; Johnson, Nanit or Happiest Baby are flagged where cited.</p>
+  <ol class="biblio" data-biblio></ol>
+</section>
+
+<footer>
+  <p>Prepared October 2026 from a structured review of the primary literature on infant sleep from birth to 12 months, for one family with a healthy four-month-old. Figures marked Modelled are calculations, not measurements. It summarises evidence; it is not an individual clinical assessment.</p>
+</footer>
+
+</main>
+</div>
+
+<div class="tip" role="tooltip" aria-hidden="true" data-tip></div>
+<script src="atlas.js"></script>
+</body>
+</html>
