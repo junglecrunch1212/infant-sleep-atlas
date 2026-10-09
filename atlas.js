@@ -128,7 +128,27 @@
     goodlin2001: ["Goodlin-Jones 2001", "https://doi.org/10.1097/00004703-200108000-00003"],
     sjr2016: ["St James-Roberts 2016", "https://pubmed.ncbi.nlm.nih.gov/27609027/"],
     blair1999: ["Blair 1999", "https://doi.org/10.1136/bmj.319.7223.1457"],
-    blair2006: ["Blair 2006", "https://doi.org/10.1093/ije/dyl212"]
+    blair2006: ["Blair 2006", "https://doi.org/10.1093/ije/dyl212"],
+    santos2019: ["Santos 2019", "https://doi.org/10.1001/jamanetworkopen.2019.18062"],
+    kerr1996: ["Kerr 1996", "https://doi.org/10.1111/j.1365-2648.1996.tb02929.x"],
+    lavner2023: ["Lavner 2023", "https://doi.org/10.1001/jamanetworkopen.2023.6276"],
+    higley2009: ["Higley & Dozier 2009", "https://doi.org/10.1080/14616730903016979"],
+    anisfeld1990: ["Anisfeld 1990", "https://pubmed.ncbi.nlm.nih.gov/2245751/"],
+    williams2020: ["Williams & Turner 2020", "https://pubmed.ncbi.nlm.nih.gov/31877392/"],
+    makela2018: ["Mäkelä 2018", "https://doi.org/10.1037/dev0000503"],
+    mosko1996: ["Mosko 1996", "https://pubmed.ncbi.nlm.nih.gov/9122552/"],
+    tappin2005: ["Tappin 2005", "https://doi.org/10.1016/j.jpeds.2005.01.035"],
+    li2006: ["Li 2006", "https://doi.org/10.1136/bmj.38671.640475.55"],
+    hershon2024: ["Hershon 2024", "https://doi.org/10.1111/apa.17237"],
+    cubero2007: ["Cubero 2007", "https://pubmed.ncbi.nlm.nih.gov/17693960/"],
+    lullabytemp: ["Lullaby Trust, room temperature", "https://www.lullabytrust.org.uk/baby-safety/safer-sleep-information/room-temperature/"],
+    esposito2013: ["Esposito 2013", "https://doi.org/10.1016/j.cub.2013.03.041"],
+    ohmura2022: ["Ohmura 2022", "https://doi.org/10.1016/j.cub.2022.08.041"],
+    tsai2012: ["Tsai 2012", "https://doi.org/10.1111/j.1365-2648.2011.05857.x"],
+    slagt2016: ["Slagt 2016", "https://pubmed.ncbi.nlm.nih.gov/27513919/"],
+    jian2016: ["Jian & Teti 2016", "https://doi.org/10.1016/j.sleep.2016.07.001"],
+    iwata2017: ["Iwata 2017", "https://pubmed.ncbi.nlm.nih.gov/28303945/"],
+    fisher2012: ["Fisher 2012", "https://doi.org/10.1542/peds.2011-1571"]
   };
   function cite(text) {
     return text.replace(/\[\[(\w+)\]\]/g, function (_, k) {
@@ -576,7 +596,7 @@
     var p = function (m) { return (m - A) / (B - A) * 100; };
     var lanes = [
       { n: "Sleep surface", rows: [
-        [{ t: "hzd", a: 4, b: 5, x: "Bassinet rating ends", tip: "~5 months, pushing up on hands and knees, or (some makers) rolling. ASTM F2194; Chicco; Evenflo." }],
+        [{ t: "hzd", a: 4, b: 5, x: "Bassinet rating ends", tip: "~5 months, pushing up on hands and knees, or (some makers) rolling. ASTM F2194; Chicco; Evenflo. P 0.73 that staying past rolling raises risk." }],
         [{ t: "band", a: 4.3, b: 12, x: "Crib, mini crib or play yard, rated to 35 in or climbing out", tip: "16 CFR 1219–1221." }]
       ] },
       { n: "Room", rows: [
@@ -590,7 +610,7 @@
         [{ t: "amber", a: 9, b: 11.5, x: "Pulling to stand", tip: "Disrupts sleep in early achievers (n = 20, Atun-Einy & Scher 2016). One laboratory, small samples." }]
       ] },
       { n: "Night waking", rows: [
-        [{ t: "amber", a: 7, b: 10, x: "Waking bump (peak 8 mo)", tip: "Parent-rated sleep problems peak at 39.7% at 8 months in Finland (Paavonen 2020). Real for some infants, transient." }],
+        [{ t: "amber", a: 7, b: 10, x: "Waking bump (peak 8 mo)", tip: "Parent-rated sleep problems peak at 39.7% at 8 months in Finland (Paavonen 2020). P 0.75 that new motor skills drive a transient rise in some infants." }],
         [{ t: "band", a: 4, b: 12, x: "One night feed remains normal: ~60% still feed at 6–12 months", tip: "UK survey of roughly 750 mothers, self-selected (Brown & Harries 2015). Night weaning not associated with longer night sleep (Olson 2026)." }]
       ] },
       { n: "Safety", rows: [
@@ -645,167 +665,314 @@
     });
   }
 
-  /* ---------------- claims audit ---------------- */
-  var VERD = { supported: "Holds up", partly: "Partly true", unsupported: "Unsupported", contradicted: "Contradicted" };
-  var SERVES = { time: "Time-poor parents", momentum: "Consensus momentum", messaging: "Messaging simplicity", commercial: "Commercial interest", contrarian: "Contrarian camp", hype: "Press hype", evidence: "Holds on evidence" };
-  var GROUPS = ["Sleep training and settling", "Schedules, naps and regressions", "Sleep location and products", "Feeding, environment and daily inputs", "Claims that hold up"];
-  var CLAIMS = [
-    { g: 0, c: "Sleep training is necessary", v: "unsupported", conf: "high", sv: ["time", "commercial"], vt: "False for her.",
-      e: "No trial has enrolled an infant without a parent-reported problem. No child benefit on any measure at age 6 ([[price2012]]). No professional body's text says a well-sleeping infant should be trained." },
-    { g: 0, c: "Sleep training makes babies sleep more", v: "partly", conf: "high", sv: ["time", "commercial"], vt: "True for parent-reported problems and parental fatigue from about 6 months; mostly false for objectively measured infant sleep.",
-      e: "In 235 infants aged 6–8 months, diary wakings fell (1.7 vs 2.2) while actigraph wakings did not (7.9 vs 7.7); about 97% in both arms still woke at least twice a night; longest stretch +20 minutes; parent-rated severe problem 4% vs 14% ([[hall2015]]). Nine RCTs pooled: night wakings g = 0.10, not significant ([[kempler2016]]). Group differences gone by ages 2–6." },
-    { g: 0, c: "Sleep training is proven safe", v: "partly", conf: "moderate", sv: ["commercial", "momentum"], vt: "Overstated. Large harm is excluded; small or subgroup harm is not; nothing tested under about 6–7 months.",
-      e: "One diluted trial to age 6: 31% lost to follow-up, 57% of intervention mothers attended, parent-report outcomes, cortisol on 46% ([[price2012]]). One 43-infant trial with about 10 per arm at 12 months ([[gradisar2016]]); its reported actigraphy null rests on secondary sources. Coarse cohort data ([[bilgin2020]]). Several pro-training authors have consulted for Johnson & Johnson." },
-    { g: 0, c: "Sleep training harms the brain or attachment", v: "unsupported", conf: "high that large harm is absent", sv: ["contrarian"], vt: "No study shows harm; large harm is ruled out for the methods tested.",
-      e: "The sole “harm” study: 25 dyads, no control group, 12 analysed, no significant rise in infant cortisol across settling ([[middlemiss2012]]; critique in [[lecuelle2025]]). The only RCT sampling cortisol at separation had 4–7 infants per arm, null ([[blunden2022]]). The rest is extrapolation from rodent separation and institutional neglect. AAIMH's own 2022 statement concedes harm is not demonstrated ([[aaimh2022]])." },
-    { g: 0, c: "Put her down drowsy but awake", v: "partly", conf: "moderate", sv: ["momentum"], vt: "Weak, cheap habit; not a requirement.",
-      e: "Origin is 1990s video observation ([[anders1992]]); AAP and Canadian handouts state it without citing trials, and it has never been isolated in one. An 802-family trial could not shift the practice (p = .052) and found no sleep effect ([[galland2017]]); a 279-family trial gained 22–35 parent-reported minutes to 40 weeks, nothing at 1 year ([[paul2016]])." },
-    { g: 0, c: "Don't feed or rock to sleep: it creates sleep associations", v: "partly", conf: "moderate", sv: ["momentum", "commercial"], vt: "Partly true for parent-noticed waking at 6–12 months; no long-term consequence shown; her current nights contradict the mechanism.",
-      e: "Correlates with more signalled waking in at least six datasets, but direction is mixed: early sleep trouble predicted later parental presence, and presence at onset was protective for long latency ([[simard2008]]); bedtime involvement at 4 months predicted rising night wakings to 8 months in 207 families ([[matzliach2025]]). Independent sleepers' advantage vanished by 9–12 months in 704 Italian infants, about 80% of whom needed help to fall asleep at every age ([[bruni2014]])." },
-    { g: 0, c: "Self-soothing is a skill that must be taught", v: "unsupported", conf: "moderate–high", sv: ["commercial"], vt: "Many infants resettle untaught, and no study links the skill to later emotional regulation.",
-      e: "About a quarter of infants resettle unaided on video at 5 weeks with no training ([[sjr2015]]). At 12 months fewer than half of awakenings are self-soothed and 43% of infants declined in self-soothing over the year; temperament was unrelated ([[burnham2002]]). “Self-soothing” is an operational label for “no parent intervened”. No study links it to later emotional regulation." },
-    { g: 0, c: "There is a window: learn it by 6 months or it gets harder", v: "unsupported", conf: "moderate", sv: ["commercial"], vt: "No comparative data; waiting forfeits nothing.",
-      e: "No comparative data. Interventions work by parent report at 9–18 months ([[kahn2020]]) and at 1.5–4 years ([[cooney2018]])." },
-    { g: 0, c: "Prompt responding builds secure attachment; never let her cry", v: "unsupported", conf: "moderate", sv: ["contrarian"], vt: "The attachment dividend is unsupported; responding to distress is harmless and possibly helpful early.",
-      e: "The founding 26-dyad finding failed replication: more ignoring in weeks 1–9 went with less crying later, and crying did not separate secure from insecure infants ([[vanij2000]]). Attachment–sleep correlation r = .18 ([[simard2017]]). Responding to distress at 1 and 3 months went with faster decline in night waking ([[voltaire2018]])." },
-
-    { g: 1, c: "The 4-month sleep regression", v: "partly", conf: "moderate", sv: ["commercial"], vt: "Not a discrete or universal event; a rise in signalled waking in a subgroup between 3 and 9 months is real.",
-      e: "No indexed study defines or tests it. Architecture matures gradually from 2 to 6 months (slow-wave sleep within cycles from week 21, [[ficca2000]]). On video in 80 infants the longest sleep period was 281 minutes at 3 months and 286 at 6, a plateau rather than a fall, though a third of infants had rising awakenings across the year ([[burnham2002]]). Parent-reported “more than 2 wakings” rose from 9% at 3 months to 21% at 6 ([[bruni2014]])." },
-    { g: 1, c: "The 8–10 month regression", v: "partly", conf: "weak–moderate", sv: ["commercial"], vt: "Real for some infants, transient, best explained by motor milestones.",
-      e: "Parent-rated problems peak at 39.7% at 8 months in Finland ([[paavonen2020]]). Actigraphy time-links more long wake episodes to crawling onset (n = 28, [[scher2015]]) and to pulling to stand in early achievers (n = 20, [[atun2016]]). One laboratory, small samples; absent from longitudinal video means." },
-    { g: 1, c: "Wake windows", v: "unsupported", conf: "high", sv: ["commercial"], vt: "The principle (tolerable wake time rises with age) is sound; the chart numbers are unsupported.",
-      e: "No study derives or tests the chart numbers. Actigraph-measured longest wake bout: 162 minutes at 3 months (range 101–292), 212 at 6 (139–348), 293 at 12 ([[schoch2020]]). The between-infant range is wider than the age-to-age steps in the charts ([[canapariww]])." },
-    { g: 1, c: "Overtired babies sleep worse; sleep begets sleep", v: "contradicted", conf: "moderate", sv: ["commercial"], vt: "The cortisol story is contradicted; “tired means fussier” is true. Don't keep her awake deliberately: deeper sleep with blunted arousal is the unsafe profile.",
-      e: "Infants kept awake 120 minutes past nap time slept longer, with higher arousal thresholds and more obstructive apnoeas (n = 14, [[franco2004]]). Toddlers who missed a nap fell asleep in 11.9 vs 37.3 minutes ([[lassonde2016]]) with no cortisol rise ([[tribble2015]]). Between infants, more day sleep goes with less night sleep (r = −0.26, [[schoch2020]]). A missed nap does worsen same-day mood in toddlers (n = 10, [[berger2012]])." },
-    { g: 1, c: "Bedtime should be 7 pm", v: "unsupported", conf: "high", sv: ["time"], vt: "No special clock time; her 8:30 pm to 7:30 am equals the reference mean.",
-      e: "National mean bedtimes span 19:27 to 22:17 ([[mindell2010]], J&J-funded). Reference night at 6 months is 11.0 h (SD 1.1) in bed ([[iglowstein2003]]). Within an infant, each hour earlier onset added 34 minutes of night sleep in 24 younger infants ([[adams2020]]): wake time is the fixed end, so move both or neither." },
-    { g: 1, c: "Sleeping through the night matters", v: "contradicted", conf: "high", sv: ["time"], vt: "Wrong as a norm and as a developmental marker.",
-      e: "38% of 6-month-olds don't sleep 6 h straight and 57% don't sleep 8 h; 28% and 43% at 12 months; unrelated to development ([[pennestri2018]]). On video essentially all infants wake 2–4 times a night; 24% of infants reported to sleep 5+ h had woken and resettled unseen ([[sjr2015]])." },
-    { g: 1, c: "Night-wean by 6 months", v: "unsupported", conf: "moderate", sv: ["time"], vt: "Optional; no child benefit shown.",
-      e: "About 60% of 6–12-month-olds take at least one night feed and about 78% wake at least once (UK survey of roughly 750 mothers, self-selected, [[brown2015]]). Night weaning was not associated with longer night sleep in 193 infants followed to 52 weeks ([[olson2026]]). No authority sets an age; no trial tests weaning against milk supply." },
-    { g: 1, c: "Contact naps create bad habits", v: "unsupported", conf: "low", sv: ["momentum"], vt: "Untested, and so is the mirror claim that contact naps aid development (the kangaroo-care data are preterm infants versus incubators).",
-      e: "No study compares contact with cot naps on nap length, architecture, night sleep or later independence. Nearest analogue: parents holding infants 15–16 h a day had infants who cried less but woke most at night at 12 weeks, confounded by 85% vs 37% exclusive breastfeeding ([[sjr2006]])." },
-    { g: 1, c: "Short naps are a problem", v: "unsupported", conf: "moderate–high", sv: ["commercial"], vt: "A 45-minute nap is one cycle and typical at this age.",
-      e: "Infant cycles run 50–60 minutes, range 30–70 ([[grigg2016]]); the afternoon nap at 4–6 months averaged 41.9 minutes and one cycle (n = 6, [[vladimirova1979]]). App logs put minimum nap length at about 5 months, rising after ([[mindell2016]], J&J-funded). The canonical nap-and-memory result used naps averaging 45 minutes ([[friedrich2015]]); nap duration was uncorrelated or negatively correlated with retention ([[seehagen2015]])." },
-
-    { g: 2, c: "Never bed-share, under any circumstances", v: "partly", conf: "high for hazards; moderate for her", sv: ["messaging"], vt: "Correct for sofas, alcohol, sedatives, smoking, prematurity and the first 3 months. Not an accurate statement of her individual risk. Suffocation and wedging risk in a prepared adult bed is unquantified.",
-      e: "The pooled analysis the AAP relies on: adjusted OR 5.1 (2.3–11.4) under 3 months for breastfed infants of non-smoking, non-drinking parents, 1.0 (0.3–3.0) at 3 months and over ([[carpenter2013]]). The opposing analysis: hazard-free bed-sharing OR 1.62 (0.96–2.73) under 98 days, 0.08 (0.01–0.52) after, the latter from one case ([[blair2014]]). England's NICE tells clinicians to discuss safer bed-sharing and to advise strongly against it only with low birth weight, alcohol, smoking or sedating drugs ([[nice]]). No randomised evidence exists." },
-    { g: 2, c: "Bed-sharing is the evolved norm, so it is safe and better", v: "unsupported", conf: "moderate–high", sv: ["contrarian"], vt: "No benefit shown; safety is a property of the conditions, not the practice.",
-      e: "Co-sleeping featured in 61% of 259 Japanese sleep-related deaths ([[osawa2020]]). Long-term outcome studies are null in both directions ([[okami2002]]; [[bilgin2024]]). Ancestral conditions included firm ground bedding and no alcohol, sedatives or duvets. One leading advocate is a paid consultant to a co-sleeper maker." },
-    { g: 2, c: "Room-share for 6–12 months", v: "partly", conf: "moderate–high to 6 months; low after", sv: ["momentum"], vt: "Sound to about 6 months; undemonstrated from 6 to 12.",
-      e: "Solitary sleep carried 3- to 10-fold SIDS odds in 1987–2003 case-control data, and adjusted OR 7.6 (4.7–12.2) in US 2016–17 data where case and control exposure were defined differently ([[parks2023]]). All studies pooled the first year; under 10% of sudden deaths occur at 7–12 months. The AAP's “as much as 50%” figure could not be traced by a paediatric sleep physician ([[canapari]])." },
-    { g: 2, c: "Her own room will improve her sleep", v: "partly", conf: "moderate", sv: ["time"], vt: "Improves what parents notice and how mothers sleep; objective infant benefit unconfirmed.",
-      e: "Observational, parent-reported: 40 minutes more night sleep at 9 months for early independent sleepers, and room-sharers had 4 times the odds of unplanned overnight bed-sharing (n = 230, [[paul2017]]). Actigraphy at 3 and 6 months: no infant difference; room-sharing mothers slept worse (n = 153, [[volkovich2015]]); reported gains after moving rooms “were not borne out by actigraphy” ([[rudzik2021]])." },
-    { g: 2, c: "A pacifier prevents SIDS", v: "partly", conf: "moderate", sv: ["messaging"], vt: "Consistent association; negligible absolute effect at her risk level; optional.",
-      e: "Use at last sleep OR 0.39 (0.31–0.50) across 7 case-control studies; number needed to treat 2,733 at the then-US SIDS rate ([[hauck2005]]); mechanism unknown. No effect on breastfeeding in trials ([[jaafar2016]]); no effect on sleep ([[butler2016]])." },
-    { g: 2, c: "Monitors and smart bassinets keep babies safe", v: "unsupported", conf: "high", sv: ["commercial"], vt: "No safety benefit shown; a SNOO is outside its indication for a rolling baby.",
-      e: "FDA states the SNOO “is not intended to prevent or reduce the risk of SIDS/SUID” ([[snoofda]]), and its indication is infants “not yet able to roll over consistently” ([[snoodenovo]]). In 1,079 monitored infants, alarm-threshold events occurred in 41%, including healthy term infants, and were not precursors of SIDS ([[ramanathan2001]]). An early consumer oximeter read normal at least once in 5 of 12 hypoxaemic infants ([[bonafide2018]])." },
-    { g: 2, c: "Weighted sleep sacks calm babies", v: "unsupported", conf: "precautionary", sv: ["commercial"], vt: "Don't use: no benefit shown, plausible harm.",
-      e: "Opposed by AAP, CPSC, CDC and NIH; five deaths at ages 1–6 months under CPSC investigation; no controlled safety or benefit data ([[npr2024]])." },
-
-    { g: 3, c: "Breastfed babies sleep worse", v: "partly", conf: "moderate–high", sv: ["commercial"], vt: "True for parent-noticed waking; false for measured sleep.",
-      e: "Actigraphy from 4 to 18 weeks found no difference by feed type, while formula-feeding mothers over-reported sleep ([[rudzik2018]]). On video at 3 months, long sleepers were as likely to be solely breast-milk fed (65.6% vs 62.5%, p = .83, [[sjr2015]]). Parent report shows more noticed waking, concurrent but not later (55,831 reports, [[hysing2014]])." },
-    { g: 3, c: "Solids, formula top-ups or cereal help sleep", v: "partly", conf: "moderate–high", sv: ["time"], vt: "Solids: real but too small to act on. Cereal: contradicted. Formula: unsupported.",
-      e: "Early solids in 1,303 infants: +16.6 minutes of night sleep at 6 months (95% CI 7.8–25.4), 7.3 minutes averaged over the study, 9% fewer wakings; unblinded parent report, 42% adherence ([[perkin2018]]). Cereal in the bedtime bottle: null in the only trial (n = 106, [[macknin1989]])." },
-    { g: 3, c: "Pumped milk must be fed at the time of day it was pumped", v: "unsupported", conf: "low", sv: ["hype"], vt: "Plausible, untested, probably small after 3 months. Match by time of day anyway, because it costs nothing.",
-      e: "Composition does cycle: melatonin peaks near 47 pg/mL around midnight and is undetectable by day; cortisol peaks in the early morning (83 reports, [[italianer2020]]). Infant-outcome evidence is one anonymous survey of 329 mothers ([[booker2022]]) and one null ([[toorop2020]]). Modelled: a night feed supplies 1% or less of her own melatonin output ([[kennaway1992]]). Press coverage called it “crucial for babies' sleep”." },
-    { g: 3, c: "Add a dream feed", v: "unsupported", conf: "low", sv: ["time"], vt: "Optional; it moves the feed, it doesn't remove it.",
-      e: "Worked only inside a three-part package in 26 newborns ([[pinilla1993]]); in the 610-infant replication, parents did not implement it ([[sjr2001]])." },
-    { g: 3, c: "White noise helps sleep", v: "partly", conf: "low–moderate", sv: ["commercial"], vt: "Weak for sleep onset; legitimate as a low-volume mask for household noise.",
-      e: "80% vs 25% of 40 newborns asleep within 5 minutes ([[spencer1990]]); nothing beyond the newborn period; wider evidence graded very low ([[riedy2021]]). All 14 machines tested exceeded 50 dBA at 30 cm at full volume, and three exceeded 85 dBA ([[hugh2014]])." },
-    { g: 3, c: "Naps need blackout darkness", v: "unsupported", conf: "low", sv: ["commercial"], vt: "Dark nights and dim evenings are mechanistically sound but untested under 12 months; dark naps have no evidence either way.",
-      e: "No study of nap-room light or blackout blinds exists. Better night sleepers at 6–12 weeks had about twice the light exposure from noon to 4 pm (n = 56, observational, [[harrison2004]]). In 3–4-year-olds one hour of light at 5–5,000 lux before bed suppressed melatonin by 69–99% with no clear dose-response ([[hartstein2022]]); no infant data." },
-    { g: 3, c: "Teething disrupts sleep", v: "contradicted", conf: "moderate–high", sv: ["time"], vt: "Camera-measured sleep doesn’t change on teething nights.",
-      e: "Camera-measured sleep in 849 infants did not differ between teething and non-teething nights although over half of parents reported disturbance ([[kahn2025t]], Nanit-affiliated authors). In 475 prospectively recorded eruptions, sleep disturbance was not associated ([[macknin2000]])." },
-    { g: 3, c: "A bath, lotion and massage routine", v: "partly", conf: "moderate", sv: ["commercial"], vt: "Order and consistency are supported; bath and lotion are not the active ingredient.",
-      e: "A prescribed routine in 405 families shortened settling and cut reported wakings within days ([[mindell2009]]); the massage-specific trial changed perceptions, not most sleep measures ([[mindell2018]]); Johnson & Johnson sells both and funded the trials. Independent actigraphy in 320 six-month-olds: a routine starting after 9 pm went with 23.6 minutes less night sleep, and fewer routine nights with more variable sleep ([[tsai2022]])." },
-    { g: 3, c: "Iron drops from 4 months for breastfed babies", v: "partly", conf: "moderate", sv: ["momentum"], vt: "Contested. Measure ferritin and haemoglobin and act on the result.",
-      e: "Iron-deficiency anaemia does alter infant sleep physiology ([[peirano2007]]). But 1 mg/kg/day from 4 to 9 months in 221 non-anaemic breastfed infants changed no Bayley score at 12, 24 or 36 months ([[svensson2024]]), and iron-replete Swedish infants given iron grew less in length and head circumference ([[dewey2002]]). European guidance finds insufficient evidence for routine supplementation ([[domellof2014]]). The AAP dose is taken from secondary sources, not verified in full text." },
-    { g: 3, c: "There is a correct nursery temperature or TOG chart", v: "partly", conf: "robust for overheating; none for the numbers", sv: ["commercial"], vt: "Avoid overheating and head covering; the specific numbers are unsupported.",
-      e: "No trial of temperature or sleepwear on sleep quality. At 28°C infants were harder to rouse late in the night than at 24°C (n = 62, [[franco2001]]); each excess tog raised SIDS risk 1.26-fold in 41 cases ([[ponsonby1992]])." },
-
-    { g: 4, c: "Back to sleep, for every sleep", v: "supported", conf: "high", sv: ["evidence"], vt: "One of the largest effects in the field.",
-      e: "Prone placement OR 13.1 (8.5–20.2) in 745 cases ([[carpenter2004]]). Once she rolls both ways on her own, leave her as she lies." },
-    { g: 4, c: "A firm, flat, bare sleep surface", v: "supported", conf: "high", sv: ["evidence"], vt: "The dominant modifiable hazard after 4 months.",
-      e: "Soft bedding adjusted OR 5.0 (3.2–8.0) for unexplained death and 16.3 (5.0–53.3) for suffocation at 2–9 months ([[parks2023]]); head covered by bedding, pooled aOR 16.9 ([[blair2008]]). At 5–11 months, blankets obstructed the airway in 55% of soft-bedding deaths ([[erck2019]])." },
-    { g: 4, c: "Never sleep with a baby on a sofa or recliner", v: "supported", conf: "high", sv: ["evidence"], vt: "Holds at every age; roughly 18-fold.",
-      e: "OR 18.3 (7.1–47.4) at all ages ([[blair2014]]); other studies 24–67; 12.9% of sleep-related deaths in 24 states occurred on sofas ([[rechtman2014]])." },
-    { g: 4, c: "No bed-sharing after alcohol or sedatives", v: "supported", conf: "high", sv: ["evidence"], vt: "Binds both adults; roughly 18-fold.",
-      e: "More than 2 units of alcohol: OR 18.3 (7.7–43.5) at all ages, about 6 in older infants ([[blair2014]]); recent alcohol or drugs in 31% of SIDS co-sleepers vs 3% of controls ([[blair2009]])." },
-    { g: 4, c: "Stop swaddling once she can roll", v: "supported", conf: "high", sv: ["evidence"], vt: "Swaddled and prone carries about 13-fold odds.",
-      e: "Swaddled and prone OR 12.99 (4.14–40.77) ([[pease2016]])." },
-    { g: 4, c: "Car seats, swings and loungers are not for sleep", v: "supported", conf: "high", sv: ["evidence"], vt: "Risk is higher under non-parental supervision.",
-      e: "348 of 11,779 sleep-related deaths occurred in sitting devices, 63% in car seats, half of those at home; odds 2.8 times higher under child-care providers ([[liaw2019]]). Nursing pillows: 154 deaths 2010–2022, 142 during sleep ([[cpscpillows]])." },
-    { g: 4, c: "Smoke-free home", v: "supported", conf: "high", sv: ["evidence"], vt: "Roughly 2.4-fold for prenatal smoking.",
-      e: "Prenatal smoking adjusted OR 2.44 in 20.7 million births ([[anderson2019]])." },
-    { g: 4, c: "A consistent, short bedtime routine helps", v: "supported", conf: "moderate", sv: ["evidence"], vt: "Small effects, tens of minutes, but consistent.",
-      e: "Effects within days in a J&J-funded RCT ([[mindell2009]]); independent actigraphy in 320 six-month-olds links later and less regular routines to shorter, more variable night sleep ([[tsai2022]])." }
+  /* ---------------- claims audit (probability scoring) ---------------- */
+  var BANDS = [
+    { k: "vlikely", label: "Very likely", lo: 0.8, hi: 1.01 },
+    { k: "likely", label: "Likely", lo: 0.6, hi: 0.8 },
+    { k: "toss", label: "Toss-up", lo: 0.4, hi: 0.6 },
+    { k: "unlikely", label: "Unlikely", lo: 0.2, hi: 0.4 },
+    { k: "vunlikely", label: "Very unlikely", lo: 0, hi: 0.2 }
   ];
+  function bandOf(p) { for (var i = 0; i < BANDS.length; i++) if (p >= BANDS[i].lo && p < BANDS[i].hi) return BANDS[i]; return BANDS[4]; }
+  var DOM = { safety: "Safety", sleep: "Sleep mechanics", outcome: "Long-term outcomes" };
+  var SERVES = { time: "Time-poor parents", momentum: "Consensus momentum", messaging: "Messaging simplicity", commercial: "Commercial interest", contrarian: "Contrarian camp", hype: "Press hype", evidence: "Holds on evidence", atlas: "This atlas" };
+  var GROUPS = ["Sleep training and settling", "Schedules, naps and regressions", "Sleep location and products", "Feeding, environment and daily inputs", "Safety rules", "This atlas’s own advice, scored the same way"];
+  var CLAIMS = [
+    { id: "A1", g: 0, t: "Sleep training is necessary", s: "A healthy infant who already sleeps well (one night feed, resettles quickly) will sleep or develop worse later unless sleep-trained.", p: .05, lo: .02, hi: .12, pa: .05, pb: .05, dom: "outcome", sv: ["time", "commercial"],
+      e: "Preventive settling programmes show no sleep difference at 12–24 months ([[galland2017]]; [[santos2019]]); the main trained cohort showed no child benefit at age 6 ([[price2012]]); sleeping through is unrelated to Bayley scores ([[pennestri2018]]). Consolidation is driven mostly by maturation, and a good sleeper is already near ceiling. Much of the world never trains, with no detectable cost." },
+    { id: "A2", g: 0, t: "Sleep training cuts night waking and helps parents", s: "Behavioural sleep training at 6–12 months reduces signalled night waking and improves parental sleep and mood, in families who report a sleep problem.", p: .85, lo: .70, hi: .92, pa: .90, pb: .8, dom: "sleep", sv: ["time"],
+      e: "Several independent RCTs and meta-analyses show fewer diary-recorded wakings and better parental fatigue and sleep ([[hall2015]]; [[mindell2006]]). Extinction of a reinforced signal is among the best-established effects in behavioural science. The weak link is maternal mood: positive in individual trials, especially in symptomatic mothers, but not in every pooled analysis ([[kempler2016]])." },
+    { id: "A3", g: 0, t: "Sleep training makes babies sleep more", s: "Behavioural sleep training at 6–12 months meaningfully increases objectively measured infant sleep (fewer actual wakings or more total sleep), not just fewer signalled wakings.", p: .30, lo: .15, hi: .45, pa: .30, pb: .3, dom: "sleep", sv: ["time", "commercial"],
+      e: "The best objective test (235 infants, actigraphy) found wakings unchanged, 7.9 vs 7.7, with the longest stretch up 20 minutes at p = .05 ([[hall2015]]); nine RCTs pooled show no significant drop in wakings ([[kempler2016]]). A small gain is mechanistically plausible: if parents stop prolonging wakings, each one gets shorter. A meaningful gain has been looked for and not found." },
+    { id: "A4", g: 0, t: "Sleep training causes lasting harm", s: "Graduated extinction (“controlled crying”) at 6+ months, within otherwise responsive care, causes lasting harm to attachment, stress regulation or emotional development.", p: .14, lo: .06, hi: .28, pa: .15, pb: .13, dom: "outcome", sv: ["contrarian"],
+      e: "Acute stress is plausible: in an uncontrolled 25-infant programme, infant cortisol at settling was still elevated on night 3 after crying had stopped ([[middlemiss2012]]; critique in [[lecuelle2025]]). Lasting harm needs more than a few nights of protest inside a sensitive relationship; the animal and orphanage evidence cited for it involves prolonged daily deprivation. Follow-ups are null: the age-6 trial excludes intention-to-treat harm above about 0.33 SD ([[price2012]]), and leaving-to-cry cohorts show no attachment difference ([[bilgin2020]]). Small or subgroup harm is not excluded, which keeps P above 0.1." },
+    { id: "A5", g: 0, t: "Put her down drowsy but awake", s: "Putting a 3–6-month-old down drowsy but awake at bedtime reduces signalled night waking at 6–12 months.", p: .53, lo: .35, hi: .67, pa: .55, pb: .5, dom: "sleep", sv: ["momentum"],
+      e: "For: video observation linking settling in the cot to later self-soothing ([[anders1992]]; [[burnham2002]]); a small RCT of settling advice with fewer reported problems at 9 months ([[kerr1996]]); multi-component trials that include it (+22 to +40 reported minutes, [[paul2016]]; [[lavner2023]]); learning theory. Against: never isolated in a trial; an 802-family trial could not get parents to change practice and found nothing ([[galland2017]]); reverse causation is documented ([[simard2008]]). A coin-flip leaning positive, at near-zero cost." },
+    { id: "A6", g: 0, t: "Feeding or rocking to sleep creates sleep associations", s: "Being fed or rocked fully to sleep causally increases signalled night waking at 6–12 months.", p: .59, lo: .45, hi: .72, pa: .60, pb: .58, dom: "sleep", sv: ["momentum", "commercial"],
+      e: "Associated with more signalled waking in at least six datasets; bedtime involvement at 4 months predicted rising wakings to 8 months in 207 families, with little infant-driven effect ([[matzliach2025]]); treatment trials show that removing parental presence at onset reduces signalling. Stimulus-control learning is a sound mechanism. Against: early sleep trouble also draws parents in ([[simard2008]]), and the gap closed by 9–12 months in 704 Italian infants ([[bruni2014]])." },
+    { id: "A7", g: 0, t: "Feeding or rocking to sleep harms her later", s: "Being fed or rocked to sleep in infancy harms sleep quality or emotional development beyond infancy.", p: .08, lo: .03, hi: .18, pa: .05, pb: .1, dom: "outcome", sv: ["momentum", "commercial"],
+      e: "No study shows harm past infancy, most infant sleep problems resolve, and parent-assisted sleep onset is the norm across much of the world (independent onset 4% in predominantly Asian regions vs 57% in predominantly Caucasian ones, [[mindell2010]]) with no detectable cost. No plausible mechanism links how a 4-month-old falls asleep to later emotional development, separate from total sleep and caregiving quality." },
+    { id: "A8", g: 0, t: "Self-soothing is learned", s: "How parents respond to night-time arousals shapes whether an infant learns to resettle without signalling.", p: .78, lo: .62, hi: .90, pa: .70, pb: .85, dom: "sleep", sv: ["commercial"], was: "Graded “unsupported”",
+      e: "Longer parental response time at 3 months predicted unaided resettling at 12 months on video (n = 80, [[burnham2002]]); interventions when the infant was not distressed predicted slower consolidation (n = 107, [[voltaire2018]]); training trials cut signalling while actigraphic waking is unchanged, which is what learned signalling predicts ([[hall2015]]). Operant learning is well established in 3-month-olds. The studies are small, but they agree with each other and with the mechanism; the earlier grade leaned on sample size alone." },
+    { id: "A9", g: 0, t: "Self-soothing must be taught", s: "Without deliberate training, infants will not learn to sleep through or self-settle.", p: .05, lo: .02, hi: .12, pa: .07, pb: .03, dom: "sleep", sv: ["commercial"],
+      e: "Contradicted by direct observation: about a quarter of infants resettle unaided on video at 5 weeks with no training ([[sjr2015]]), most children consolidate on their own, and much of the world never trains. Learning shapes self-soothing (A8); that does not make teaching necessary." },
+    { id: "A10", g: 0, t: "There is a window: learn it by 6 months", s: "Independent settling becomes materially harder to establish if not done before about 6 months.", p: .23, lo: .10, hi: .35, pa: .25, pb: .2, dom: "sleep", sv: ["commercial"],
+      e: "No comparative data. Interventions work by parent report at 9–18 months ([[kahn2020]]) and at 1.5–4 years ([[cooney2018]]), with effects at least as large. Some mechanism for the claim (more practised habits, separation protest and mobility from 8–10 months) keeps it above 0.1." },
+    { id: "A11", g: 0, t: "Responsive night care builds attachment", s: "Prompt, sensitive night-time responding contributes causally to attachment security.", p: .50, lo: .30, hi: .65, pa: .50, pb: .5, dom: "outcome", sv: ["contrarian"], was: "Graded “unsupported”",
+      e: "Sensitivity in general causally supports attachment, and night is a main context of infant distress. In 44 families, mothers of secure 12-month-olds were more consistent and responsive at night on video ([[higley2009]]); two small RCTs of extra carrying raised security in at-risk dyads ([[anisfeld1990]]; [[williams2020]]). Against: promptness is not sensitivity, the founding “respond fast, cry less” result failed replication ([[vanij2000]]), and leaving-to-cry cohorts find no attachment difference ([[bilgin2020]]). Given the causal sensitivity–attachment link, a coin-flip is the honest score." },
+    { id: "A12", g: 0, t: "Trained or independent sleepers turn out more self-regulated", s: "Infants who settle independently or are sleep-trained have better long-term emotional regulation or independence.", p: .10, lo: .04, hi: .20, pa: .08, pb: .12, dom: "outcome", sv: ["commercial"],
+      e: "No supporting data: the trained cohort showed no child difference at age 6 ([[price2012]]). Any association would mostly reflect easy temperament, which both settles independently and regulates well. No mechanism linking unaided sleep onset in infancy to daytime emotion regulation has been shown." },
+
+    { id: "B1", g: 1, t: "The 4-month sleep regression", s: "There is a discrete, near-universal worsening of sleep at about 4 months.", p: .08, lo: .03, hi: .15, pa: .10, pb: .05, dom: "sleep", sv: ["commercial"],
+      e: "Objective group trajectories plateau after 3 months rather than worsen (longest sleep period 281 minutes at 3 months, 286 at 6, on video, [[burnham2002]]); architecture matures gradually from 2 to 6 months ([[ficca2000]]). What is real is a subgroup rise in parent-reported waking (more than 2 wakings: 9% at 3 months, 21% at 6, [[bruni2014]]), P ≈ 0.7 for that weaker claim." },
+    { id: "B2", g: 1, t: "The 8–10 month motor-milestone bump", s: "Some infants show a transient rise in night waking around 8–10 months linked to new motor skills (crawling, pulling to stand).", p: .75, lo: .60, hi: .88, pa: .70, pb: .8, dom: "sleep", sv: ["commercial"], was: "Graded “weak–moderate”",
+      e: "Actigraphy time-links more long wake episodes to crawling onset (n = 28, [[scher2015]]) and to pulling to stand (n = 20, [[atun2016]]); parent-rated problems peak at 39.7% at 8 months in a large Finnish cohort ([[paavonen2020]]). One laboratory and small samples, but the claim is modest (“some infants”), the data are objective, and motor learning reshapes sleep in adults too." },
+    { id: "B3", g: 1, t: "Wake windows", s: "Scheduling naps by age-specific wake-window charts improves infant sleep compared with following the infant's cues.", p: .28, lo: .15, hi: .42, pa: .30, pb: .25, dom: "sleep", sv: ["commercial"],
+      e: "The principle is sound (P ≈ 0.95): sleep pressure builds with time awake. The chart numbers have no derivation, and the measured range between infants (longest wake bout 101–292 minutes at 3 months, [[schoch2020]]) is wider than the charts' age-to-age steps ([[canapariww]]). A chart could help parents who miss tired cues, so P is not near zero; attentive caregivers' cues carry more information than a population average." },
+    { id: "B4", g: 1, t: "Overtired babies sleep worse", s: "An infant kept awake past her sleep-pressure peak sleeps less or more fragmented that night (the cortisol “second wind”).", p: .20, lo: .10, hi: .35, pa: .20, pb: .2, dom: "sleep", sv: ["commercial"], was: "Graded “contradicted”",
+      e: "Experiments point the other way: infants kept awake 2 hours past nap time slept longer and deeper, with higher arousal thresholds (n = 14, [[franco2004]]); toddlers who missed a nap fell asleep faster ([[lassonde2016]]) with no cortisol rise ([[tribble2015]]). Homeostatic sleep regulation predicts this. Bedtime fussiness is real ([[berger2012]]) and acute distress could fragment some nights, so the claim is unlikely rather than contradicted. Keeping her up is the wrong lever either way: deeper sleep with blunted arousal is the less safe profile." },
+    { id: "B5", g: 1, t: "Sleep begets sleep", s: "More daytime sleep produces more night sleep.", p: .13, lo: .05, hi: .22, pa: .15, pb: .1, dom: "sleep", sv: ["commercial"],
+      e: "Between infants, more day sleep goes with less night sleep (r = −0.26, [[schoch2020]]); in toddlers, naps push night sleep later and shorter. Homeostatic theory predicts exactly that trade. One parent-report association in 1-month-olds points the other way ([[iwata2017]])." },
+    { id: "B6", g: 1, t: "Bedtime should be 7 pm", s: "For her (8:30 pm to 7:30 am), moving bedtime to about 7 pm would add at least 30 minutes of total sleep, sustained.", p: .30, lo: .15, hi: .45, pa: .35, pb: .25, dom: "sleep", sv: ["time"],
+      e: "Within infants, each hour of earlier onset added 34 minutes of night sleep when wake time stayed fixed (n = 24, younger infants, [[adams2020]]). But her night already equals the reference mean (11.0 h in bed at 6 months, [[iglowstein2003]]), naps can shrink to compensate, and 7 pm may fall before her melatonin onset. National mean bedtimes span 19:27 to 22:17 ([[mindell2010]]). Even if true, the gain matters little for a child who is not short of sleep." },
+    { id: "B7", g: 1, t: "Sleeping through the night matters", s: "Sleeping through the night by 6–12 months matters for development.", p: .09, lo: .03, hi: .15, pa: .07, pb: .1, dom: "outcome", sv: ["time"],
+      e: "No association with Bayley scores at 6, 12 or 36 months in 388 infants ([[pennestri2018]]); three or more wakings at 8 months made no Bayley difference at 8 or 24 months ([[makela2018]]). On video essentially all infants wake 2–4 times a night; 24% of infants reported as sleeping through had woken and resettled unseen ([[sjr2015]])." },
+    { id: "B8", g: 1, t: "Night-weaning helps her sleep", s: "Night-weaning at about 6 months improves the infant's own objectively measured sleep.", p: .30, lo: .15, hi: .45, pa: .35, pb: .25, dom: "sleep", sv: ["time"],
+      e: "Night weaning was not associated with longer night sleep in 193 infants followed to 52 weeks ([[olson2026]]), and programmes that cut signalling do not move actigraphic waking ([[hall2015]]). The mechanism allows fewer signalled wakings and shorter feed-related wake bouts, but arousals are intrinsic and feeds at 6 months are brief. About 60% of 6–12-month-olds still feed at night ([[brown2015]])." },
+    { id: "B9", g: 1, t: "Contact naps create habits", s: "Contact naps make independent napping harder to establish later.", p: .53, lo: .35, hi: .68, pa: .55, pb: .5, dom: "sleep", sv: ["momentum"], was: "Graded “unknown”",
+      e: "No direct study. The association mechanism behind A6 applies to naps, and separation from the holder's body is the measured trigger for waking on transfer ([[ohmura2022]]). Against: nap consolidation is driven mostly by maturation, and daytime sleep is the most environment-shaped part of infant sleep, so it also re-shapes easily ([[fisher2012]]). Expected cost if true: a few weeks of harder transition, not a lasting problem." },
+    { id: "B10", g: 1, t: "Contact naps benefit development", s: "Contact naps measurably benefit a healthy term 4–12-month-old's development compared with cot naps.", p: .16, lo: .06, hi: .28, pa: .20, pb: .12, dom: "outcome", sv: ["contrarian"],
+      e: "The benefit evidence is preterm kangaroo care against incubators, which does not transfer. Two small RCTs found extra carrying raised attachment security in at-risk dyads ([[anisfeld1990]]; [[williams2020]]); that supports contact as part of sensitive care, not naps specifically, and the marginal gain in an already high-contact household is smaller. Sleep beside the mother at about 3 months is lighter, not deeper (n = 35, polysomnography, [[mosko1996]])." },
+    { id: "B11", g: 1, t: "Short naps are a problem", s: "Short (about 45-minute, single-cycle) naps impair learning compared with longer naps, and extending them helps.", p: .12, lo: .04, hi: .20, pa: .15, pb: .08, dom: "outcome", sv: ["commercial"],
+      e: "The canonical nap-and-memory effect came from naps averaging 45 minutes ([[friedrich2015]]); nap length was uncorrelated or negatively correlated with retention ([[seehagen2015]]). A first cycle carries most of the slow-wave sleep and spindles linked to consolidation. No study has tested nap extension." },
+
+    { id: "C1", g: 2, t: "Never bed-share", s: "Hazard-free bed-sharing (sober, non-smoking, breastfeeding mother, prepared firm bed) raises a 4–12-month-old's sudden-death risk (SIDS plus suffocation) at least 1.5-fold over a crib in the parents' room.", p: .38, lo: .20, hi: .55, pa: .40, pb: .35, dom: "safety", sv: ["messaging"],
+      e: "SIDS data after 3 months without hazards are null or protective: adjusted OR 1.0 (0.3–3.0) ([[carpenter2013]]), 1.07 ([[tappin2005]]), 0.08 from one case ([[blair2014]]). But SIDS case-control studies under-capture suffocation and entrapment; wedging deaths peak at 5–8 months with 73% in adult beds ([[erck2019]]); and US surface-sharing carries aOR 2.1–2.5 without alcohol or drug adjustment ([[parks2023]]). The 1.5-fold threshold sits inside every confidence interval. If true, the absolute addition is a few per 100,000." },
+    { id: "C2", g: 2, t: "Bed-sharing is better for the baby", s: "Bed-sharing benefits infant development or attachment.", p: .15, lo: .06, hi: .30, pa: .10, pb: .2, dom: "outcome", sv: ["contrarian"],
+      e: "Long-term outcomes are null: no link with behaviour trajectories from 3 to 11 years in 16,599 children ([[bilgin2024]]) or with outcomes at 18 years ([[okami2002]]). Bed-sharing does track longer breastfeeding, in both causal directions, which gives an indirect route. Ancestral-norm arguments ignore that ancestral beds lacked duvets, alcohol and sedatives; co-sleeping featured in 61% of Japanese sleep-related deaths ([[osawa2020]])." },
+    { id: "C3", g: 2, t: "Room-share to 12 months", s: "Room-sharing from 6 to 12 months reduces sudden-death risk compared with the infant's own room.", p: .48, lo: .28, hi: .65, pa: .45, pb: .5, dom: "safety", sv: ["momentum"], was: "Graded “undemonstrated (low)”",
+      e: "Solitary sleep carried 3–10-fold odds in 1987–2003 case-control data and 7.6 in US 2016–17 data ([[parks2023]]), but every study pooled the first year, and under 10% of deaths occur at 7–12 months. Supervision and arousal mechanisms plausibly persist (rolling and soft-object deaths happen at these ages); against that, room-sharers are four times as likely to end up in an unplanned bed-share ([[paul2017]]). Undemonstrated with a live mechanism is a coin-flip, worth roughly 1 per 100,000 if true." },
+    { id: "C4", g: 2, t: "Her own room will improve her sleep", s: "Moving her to her own room after about 6 months improves her objectively measured sleep.", p: .38, lo: .22, hi: .52, pa: .40, pb: .35, dom: "sleep", sv: ["time"],
+      e: "Parent reports favour own room (+40 minutes at 9 months, n = 230, [[paul2017]]), but actigraphy found no infant difference at 3–6 months while room-sharing mothers slept worse ([[volkovich2015]]), and reported gains after moving rooms were not borne out on actigraphy ([[rudzik2021]]). The mechanism (fewer parent-triggered or parent-prolonged arousals) is the same one behind the pause rule, so a small objective gain is plausible." },
+    { id: "C5", g: 2, t: "A pacifier prevents SIDS", s: "A pacifier at sleep onset causally lowers SIDS risk.", p: .58, lo: .40, hi: .73, pa: .55, pb: .6, dom: "safety", sv: ["messaging"],
+      e: "Consistent protection across case-control studies: OR 0.39 pooled ([[hauck2005]]); aOR 0.08 in California, apparently attenuating other risks ([[li2006]]). No RCT, and the mechanism is unknown (arousability, airway position and preventing face-down positioning are candidates); a pacifier may partly mark a caregiving style. At her baseline the absolute effect is tiny. No effect on breastfeeding in trials ([[jaafar2016]])." },
+    { id: "C6", g: 2, t: "Monitors and smart bassinets keep babies safe", s: "Consumer vital-sign monitors or smart bassinets reduce sudden-death risk.", p: .10, lo: .04, hi: .22, pa: .07, pb: .12, dom: "safety", sv: ["commercial"],
+      e: "No outcome evidence. In 1,079 monitored infants, alarm-threshold events were common in healthy babies and did not precede SIDS ([[ramanathan2001]]); an early consumer oximeter missed hypoxaemia in 5 of 12 infants ([[bonafide2018]]). The residual risks at her age (entrapment, soft objects) are not obviously preceded by actionable alarms. The SNOO is indicated only for infants not yet rolling ([[snoodenovo]])." },
+    { id: "C7", g: 2, t: "Weighted sleep sacks", s: "Weighted sleep sacks improve infant sleep without adding risk.", p: .15, lo: .04, hi: .22, pa: .20, pb: .1, dom: "safety", sv: ["commercial"],
+      e: "A conjunction: calming from deep pressure is plausible, but there is no independent evidence of a sleep benefit, and the harm mechanism (load on the chest, blunted arousal, harder to lift the head) points the other way. AAP, CPSC, CDC and NIH oppose them; five deaths are under CPSC investigation ([[npr2024]])." },
+
+    { id: "D1", g: 3, t: "Breastfed babies sleep worse", s: "Breastfed infants get less objectively measured total sleep than formula-fed infants.", p: .25, lo: .12, hi: .40, pa: .25, pb: .25, dom: "sleep", sv: ["commercial"],
+      e: "Actigraphy from 4 to 18 weeks found no difference, while formula-feeding mothers over-reported sleep ([[rudzik2018]]); on video at 3 months long sleepers were as often breast-milk fed ([[sjr2015]]); breastfeeding shortens the longest stretch but not total sleep at 6–12 months ([[hershon2024]]). Breastfed infants do signal and feed more at night (P ≈ 0.85 for that weaker claim), which can cost a little sleep." },
+    { id: "D2", g: 3, t: "Formula or cereal top-ups help sleep", s: "Formula or cereal top-ups lengthen night sleep by at least 30 minutes at 4–6 months.", p: .12, lo: .03, hi: .20, pa: .15, pb: .08, dom: "sleep", sv: ["time"],
+      e: "Cereal in the bedtime bottle: null in the only RCT (n = 106, [[macknin1989]]). Early solids added 16.6 minutes of reported night sleep at 6 months at best (n = 1,303, unblinded, [[perkin2018]]). Night waking at this age is not mainly hunger, so the caloric mechanism is weak." },
+    { id: "D3", g: 3, t: "Match pumped milk to the time of day", s: "Feeding expressed milk at the clock time it was pumped measurably improves a 4-month-old's sleep.", p: .29, lo: .12, hi: .45, pa: .35, pb: .22, dom: "sleep", sv: ["hype"],
+      e: "Milk does cycle: melatonin peaks near midnight and is absent by day; cortisol peaks in the morning ([[italianer2020]]). Infant-outcome evidence is one anonymous survey of 329 mothers ([[booker2022]]) and a double-blind crossover of day/night-dissociated formula in 30 bottle-fed infants with sleep problems that added about 55 minutes of actigraphic sleep ([[cubero2007]]), though engineered formula exaggerates the natural day/night difference; milk cortisol rhythm was unrelated to sleep in 59 pairs ([[toorop2020]]). Modelled: at 4 months a night feed supplies about 1% of her own melatonin ([[kennaway1992]]), which shrinks the main pathway; tryptophan and morning cortisol remain. Plausible, small, costless to follow." },
+    { id: "D4", g: 3, t: "A dream feed", s: "A dream feed (feeding the sleeping infant before the parents' bedtime) reduces night wakings.", p: .38, lo: .22, hi: .52, pa: .35, pb: .4, dom: "sleep", sv: ["time"],
+      e: "Worked only inside a three-part package in 26 newborns ([[pinilla1993]]); in the 610-infant replication parents would not implement it ([[sjr2001]]). Moving a hunger-driven feed to the adults' bedtime can plausibly remove one later waking, but most arousals are not hunger-driven and rousing a sleeping infant can fragment sleep. More likely to move the waking than remove it." },
+    { id: "D5", g: 3, t: "White noise", s: "Continuous white noise improves infant sleep at 4–12 months.", p: .48, lo: .28, hi: .62, pa: .50, pb: .45, dom: "sleep", sv: ["commercial"],
+      e: "Faster sleep onset in 40 newborns, 80% vs 25% within 5 minutes ([[spencer1990]]); nothing measured beyond the newborn period, and the wider evidence is very low quality ([[riedy2021]]). Masking intermittent household noise to reduce arousals is a robust mechanism in adults, so the benefit is likeliest for daytime naps in a busy house. Keep machines quiet: all 14 tested exceeded 50 dBA at 30 cm at full volume ([[hugh2014]])." },
+    { id: "D6", g: 3, t: "Blackout darkness at night", s: "A dark room during night sleep improves infant sleep compared with dim light.", p: .45, lo: .28, hi: .60, pa: .70, pb: .4, dom: "sleep", sv: ["commercial"], was: "Graded “no evidence either way”",
+      e: "An hour of even 5–40 lux before bed suppressed melatonin 69–99% in preschoolers ([[hartstein2022]]), and infant lenses pass more light than adult ones. But that exposure was with eyes open; closed eyelids filter most light during sleep, and there are no infant data. Darkness also blocks summer dawn light, a plausible cause of early waking. A coin-flip for sleep itself, at zero cost. This was the one claim where the two scorers differed by more than 0.2 (0.70 vs 0.40) until pre-bed light was split out (F4)." },
+    { id: "D7", g: 3, t: "Blackout darkness for naps", s: "Blackout darkness for daytime naps lengthens naps.", p: .40, lo: .22, hi: .55, pa: .45, pb: .35, dom: "sleep", sv: ["commercial"], was: "Graded “no evidence either way”",
+      e: "No data. Reducing visual stimulation during light-sleep transitions plausibly helps link cycles, but naps are only weakly gated by melatonin, daylight exposure helps entrain the clock ([[harrison2004]]), and Nordic outdoor daylight naps are reported as long." },
+    { id: "D8", g: 3, t: "Teething disrupts sleep", s: "Teething measurably disrupts night sleep around eruptions.", p: .30, lo: .15, hi: .45, pa: .30, pb: .3, dom: "sleep", sv: ["time"], was: "Graded “contradicted”",
+      e: "Camera-measured sleep in 849 infants did not differ on teething nights, though over half of parents reported disturbance ([[kahn2025t]], Nanit-affiliated). But in 475 prospectively recorded eruptions, wakefulness and irritability were associated with the 8-day teething window even though rated “sleep disturbance” was not ([[macknin2000]]), and local inflammation is a plausible arousal source. Unlikely as a general rule; a few wakeful days around some teeth is likely (P ≈ 0.7). The earlier grade omitted the wakefulness finding." },
+    { id: "D9", g: 3, t: "A consistent bedtime routine", s: "A consistent bedtime routine improves infant sleep.", p: .75, lo: .60, hi: .87, pa: .80, pb: .7, dom: "sleep", sv: ["commercial"],
+      e: "Several RCTs show faster settling and fewer reported wakings within days ([[mindell2009]]), but they are Johnson & Johnson-funded and parent-reported, and the massage-specific trial moved perceptions more than sleep ([[mindell2018]]). Independent actigraphy in 320 six-month-olds links later and irregular routines to shorter, more variable sleep ([[tsai2022]]). Conditioned cues and regularity are sound mechanisms. Bath and lotion are not the active ingredient (P ≈ 0.3)." },
+    { id: "D10", g: 3, t: "Iron drops from 4 months", s: "Routine iron drops from 4 months benefit iron-replete breastfed infants.", p: .14, lo: .06, hi: .28, pa: .12, pb: .15, dom: "outcome", sv: ["momentum"],
+      e: "In 221 non-anaemic breastfed infants, 1 mg/kg/day from 4 to 9 months changed no Bayley score to 36 months ([[svensson2024]]); iron-replete infants given iron grew less in length and head circumference ([[dewey2002]]). Iron-deficiency anaemia does disturb infant sleep physiology ([[peirano2007]]), so the right move is to measure, not dose blind." },
+    { id: "D11", g: 3, t: "There is a correct TOG chart", s: "Following a specific room-temperature or TOG chart improves safety beyond avoiding overheating and head covering.", p: .14, lo: .04, hi: .22, pa: .20, pb: .08, dom: "safety", sv: ["commercial"],
+      e: "Overheating is a real risk factor (RR 1.26 per excess tog, [[ponsonby1992]]; infants were harder to rouse at 28°C than at 24°C, [[franco2001]]), but the Lullaby Trust declines tog charts because insulation varies by product ([[lullabytemp]]). A chart adds nothing to “warm chest, no hat, at most one layer more than an adult”." },
+
+    { id: "E1", g: 4, t: "Back to sleep, every sleep", s: "Back sleeping lowers sudden-death risk compared with front or side sleeping.", p: .97, lo: .93, hi: .99, pa: .97, pb: .97, dom: "safety", sv: ["evidence"],
+      e: "Prone placement OR 13.1 (8.5–20.2) in 745 cases ([[carpenter2004]]); the back-to-sleep campaigns roughly halved SIDS rates, a population-scale natural experiment; rebreathing and impaired arousal are direct mechanisms." },
+    { id: "E2", g: 4, t: "A firm, flat, bare sleep surface", s: "Soft bedding or objects in the sleep space raise sudden-death risk.", p: .95, lo: .90, hi: .98, pa: .95, pb: .95, dom: "safety", sv: ["evidence"],
+      e: "Soft bedding aOR 5.0 for unexplained death and 16.3 for suffocation at 2–9 months ([[parks2023]]); head covered by bedding, pooled aOR 16.9 ([[blair2008]]); airway obstruction is visible in death-scene investigations ([[erck2019]])." },
+    { id: "E3", g: 4, t: "Never sleep with her on a sofa or recliner", s: "An adult falling asleep with an infant on a sofa, armchair or recliner sharply raises risk.", p: .94, lo: .85, hi: .97, pa: .95, pb: .92, dom: "safety", sv: ["evidence"],
+      e: "OR 18.3 at all ages ([[blair2014]]), 24–67 in other studies; 12.9% of sleep-related deaths in 24 states occurred on sofas ([[rechtman2014]]); wedging and entrapment are direct mechanisms. Wide intervals and overlap with alcohol and smoking temper the size, not the direction." },
+    { id: "E4", g: 4, t: "No bed-sharing after alcohol or sedatives", s: "Bed-sharing after alcohol or sedating drugs sharply raises risk.", p: .93, lo: .85, hi: .97, pa: .93, pb: .93, dom: "safety", sv: ["evidence"],
+      e: "More than 2 units: OR 18.3 at all ages, about 6 in older infants ([[blair2014]]); recent alcohol or drugs in 31% of SIDS co-sleepers vs 3% of controls ([[blair2009]]). Blunted adult arousal is a direct mechanism." },
+    { id: "E5", g: 4, t: "Stop swaddling once she can roll", s: "Swaddling once an infant can roll raises risk.", p: .87, lo: .75, hi: .95, pa: .85, pb: .88, dom: "safety", sv: ["evidence"],
+      e: "Swaddled and prone OR 12.99 ([[pease2016]]). An arms-bound infant who rolls cannot lift or turn her head. A four-study meta-analysis with heterogeneity, hence below the other rules." },
+    { id: "E6", g: 4, t: "Car seats, swings and loungers are not for sleep", s: "Infants left to sleep in sitting devices outside travel face raised risk.", p: .84, lo: .65, hi: .92, pa: .85, pb: .82, dom: "safety", sv: ["evidence"],
+      e: "348 of 11,779 sleep-related deaths occurred in sitting devices, 63% in car seats used off-label at home, more often under paid caregivers ([[liaw2019]]); nursing pillows: 154 deaths 2010–2022 ([[cpscpillows]]). No exposure denominators, but positional asphyxia (chin to chest) is a concrete mechanism." },
+    { id: "E7", g: 4, t: "Smoke-free home", s: "Pre- or postnatal smoking raises SIDS risk.", p: .95, lo: .90, hi: .98, pa: .95, pb: .95, dom: "safety", sv: ["evidence"],
+      e: "Prenatal smoking aOR 2.44 in 20.7 million births, with a dose-response from one cigarette a day ([[anderson2019]]); nicotine affects brainstem arousal circuits in animal work." },
+
+    { id: "F0", g: 5, t: "Move her out of the bassinet now", s: "Continuing in a bassinet after an infant can roll raises risk (falls, entrapment, face-against-side).", p: .73, lo: .50, hi: .85, pa: .75, pb: .7, dom: "safety", sv: ["atlas"],
+      e: "The standard's scope ends at about 5 months or pushing up on hands and knees ([[astm2194]]); some makers stop at rolling ([[chicco]]). The mechanisms are concrete: shallow sides and a high centre of gravity once she pushes up, and a small soft-sided space for face-against-side positions. No death series for over-stage use was found, and rolling alone is a weaker trigger than hands-and-knees. Acting costs a crib." },
+    { id: "F1", g: 5, t: "Pause 2–4 minutes for non-distress sounds", s: "Pausing 2–4 minutes before responding to stirring, grunting or brief calls increases unaided resettling.", p: .70, lo: .52, hi: .84, pa: .65, pb: .75, dom: "sleep", sv: ["atlas"], was: "Graded “low to moderate”",
+      e: "Many such sounds come from active sleep or brief arousals that resolve unaided ([[goodlin2001]]). Longer response time at 3 months predicted self-soothing at 12 ([[burnham2002]]); non-distress interventions slowed consolidation ([[voltaire2018]]); a responsive-parenting trial that taught “give a few minutes” gained 40 reported minutes ([[lavner2023]]). The Pelotas trial's “wait before attending” advice showed no objective effect ([[santos2019]]), which tempers the long-run reading." },
+    { id: "F2", g: 5, t: "Walk, then sit, before laying her down", s: "Walking about 5 minutes, then sitting still 5–8 minutes before laying a sleeping infant down, reduces waking on transfer.", p: .65, lo: .45, hi: .80, pa: .70, pb: .6, dom: "sleep", sv: ["atlas"],
+      e: "One study (about 21 crying infants; authors hold a related patent) found the laydown outcome depended on minutes asleep beforehand ([[ohmura2022]]). It fits two independent mechanisms: the transport calming response, shown in both human infants and mouse pups ([[esposito2013]]), and infants entering light sleep first and arousing from it easily. Unreplicated and untested at home." },
+    { id: "F3", g: 5, t: "Daylight by day helps nights", s: "Bright daytime light exposure, especially in the afternoon, improves infant night sleep.", p: .63, lo: .45, hi: .76, pa: .65, pb: .6, dom: "sleep", sv: ["atlas"],
+      e: "Better night sleepers at 6–12 weeks had about twice the noon-to-4 pm light (n = 56, observational, [[harrison2004]]), and young infants spend little of the day above 100 lux ([[tsai2012]]). Daytime light raises circadian amplitude across mammals. At 4 months her rhythm is already entrained, so the effect may be modest." },
+    { id: "F4", g: 5, t: "Dim the last hour before bed", s: "Keeping light dim in the hour before bed helps her fall asleep.", p: .60, lo: .42, hi: .75, pa: .60, pb: null, dom: "sleep", sv: ["atlas"],
+      e: "In 3–4-year-olds, an hour of 5–5,000 lux before bed suppressed melatonin 69–99% ([[hartstein2022]]); infant lenses transmit more light; her melatonin rhythm is running by 4 months ([[kennaway1992]]). No infant sleep-outcome data. Added after the independent scoring, so it has no second score." },
+    { id: "F5", g: 5, t: "Her easy temperament lowers the stakes", s: "Infants high in negative emotionality are more affected by parents' sleep practices than easy infants.", p: .53, lo: .35, hi: .68, pa: .55, pb: .5, dom: "outcome", sv: ["atlas"],
+      e: "Differential susceptibility to parenting has meta-analytic support across 84 studies ([[slagt2016]]), though preregistered tests are mixed. For sleep no temperament-by-practice interaction has been tested; one study found moderation by surgency, not negative emotionality ([[jian2016]]). A floor effect supplies a mechanism: an easy sleeper has less signalling for any practice to move." }
+  ];
+
+  function fmtP(p) { return p.toFixed(2); }
+  function median(a) { var s = a.slice().sort(function (x, y) { return x - y; }); var n = s.length; return n ? (n % 2 ? s[(n - 1) / 2] : (s[n / 2 - 1] + s[n / 2]) / 2) : NaN; }
+
+  function strip(c) {
+    return '<span class="pstrip" aria-hidden="true"><i class="ps-mid"></i><i class="ps-rng" style="left:' + (c.lo * 100) + '%;width:' + ((c.hi - c.lo) * 100) + '%"></i><i class="ps-dot" style="left:' + (c.p * 100) + '%"></i></span>';
+  }
+
+  function calibration() {
+    var both = CLAIMS.filter(function (c) { return c.pb != null; });
+    var diffs = both.map(function (c) { return Math.abs(c.pa - c.pb); });
+    var mean = diffs.reduce(function (a, b) { return a + b; }, 0) / diffs.length;
+    var host = $("[data-calib]");
+    if (host) host.textContent = both.length + " claims were scored twice, by two scorers working independently. Median gap " + fmtP(median(diffs)) + ", mean " + fmtP(mean) + "; " + diffs.filter(function (d) { return d > 0.2; }).length + " gap above 0.2 (D6, resolved by splitting pre-bed light into F4). Each final P is the average of the two scores, except D6, re-scored after the split.";
+  }
+
+  function buildDotPlot() {
+    var host = $("[data-dotplot]"); if (!host) return;
+    var by = "dom";
+    var toggle = $("[data-dotby]");
+    function rowsFor(mode) {
+      if (mode === "dom") return Object.keys(DOM).map(function (k) { return { k: k, label: DOM[k], items: CLAIMS.filter(function (c) { return c.dom === k; }) }; });
+      return Object.keys(SERVES).map(function (k) { return { k: k, label: SERVES[k], items: CLAIMS.filter(function (c) { return c.sv.indexOf(k) >= 0; }) }; }).filter(function (r) { return r.items.length; });
+    }
+    function draw() {
+      var trackW = Math.max(200, host.getBoundingClientRect().width - (window.innerWidth >= 720 ? 208 : 0));
+      var near = Math.max(0.022, 14 / trackW);
+      host.innerHTML = "";
+      rowsFor(by).forEach(function (r) {
+        var row = el("div", "dp-row");
+        var med = median(r.items.map(function (c) { return c.p; }));
+        row.appendChild(el("div", "dp-label", r.label + "<small>" + r.items.length + " claims, median " + fmtP(med) + "</small>"));
+        var tr = el("div", "dp-track");
+        [0.2, 0.4, 0.6, 0.8].forEach(function (t) { var g = el("div", "hb-grid"); g.style.left = (t * 100) + "%"; tr.appendChild(g); });
+        var m = el("div", "dp-med"); m.style.left = (med * 100) + "%"; m.title = "Median " + fmtP(med); tr.appendChild(m);
+        // simple beeswarm: offset dots that sit within 2.2% of an earlier one
+        var placed = [];
+        r.items.slice().sort(function (a, b) { return a.p - b.p; }).forEach(function (c) {
+          var lane = 0, offsets = [0, -1, 1, -2, 2, -3, 3, -4, 4];
+          for (var i = 0; i < offsets.length; i++) {
+            var o = offsets[i];
+            if (!placed.some(function (q) { return q.lane === o && Math.abs(q.p - c.p) < near; })) { lane = o; break; }
+          }
+          placed.push({ p: c.p, lane: lane });
+          var d = el("button", "dp-dot");
+          d.type = "button";
+          d.style.left = (c.p * 100) + "%";
+          d.style.top = "calc(50% + " + (lane * 8) + "px)";
+          d.setAttribute("aria-label", c.id + ", " + c.t + ": P " + fmtP(c.p));
+          d.innerHTML = "<i></i>";
+          bindTip(d, function () { return "<b>P " + fmtP(c.p) + " · " + bandOf(c.p).label + "</b>" + c.t + "<i>" + c.id + ". Click to open the evidence.</i>"; });
+          d.addEventListener("click", function () { openClaim(c.id); });
+          tr.appendChild(d);
+        });
+        row.appendChild(tr);
+        host.appendChild(row);
+      });
+      var axisRow = el("div", "dp-row dp-axisrow"); axisRow.appendChild(el("div"));
+      var axis = el("div", "hb-axis");
+      [0, 0.2, 0.4, 0.6, 0.8, 1].forEach(function (t) { var s = el("span", null, t === 0 ? "0" : t === 1 ? "1" : fmtP(t)); s.style.left = (t * 100) + "%"; if (t === 0) s.style.transform = "none"; if (t === 1) s.style.transform = "translateX(-100%)"; axis.appendChild(s); });
+      axisRow.appendChild(axis);
+      host.appendChild(axisRow);
+    }
+    if (toggle) $$("button", toggle).forEach(function (b) {
+      b.addEventListener("click", function () {
+        by = b.dataset.by;
+        $$("button", toggle).forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+        draw();
+      });
+    });
+    draw();
+    var lastW = window.innerWidth, rt;
+    window.addEventListener("resize", function () { if (Math.abs(window.innerWidth - lastW) < 40) return; lastW = window.innerWidth; clearTimeout(rt); rt = setTimeout(draw, 150); });
+    var tbl = "<table><thead><tr><th>ID</th><th>Claim</th><th class='num'>P</th><th class='num'>Range</th><th class='num'>Scorer A / B</th><th>Domain</th></tr></thead><tbody>" +
+      CLAIMS.slice().sort(function (a, b) { return b.p - a.p; }).map(function (c) {
+        return "<tr><td>" + c.id + "</td><td>" + c.t + "</td><td class='num'>" + fmtP(c.p) + "</td><td class='num'>" + fmtP(c.lo) + "–" + fmtP(c.hi) + "</td><td class='num'>" + fmtP(c.pa) + " / " + (c.pb == null ? "—" : fmtP(c.pb)) + "</td><td>" + DOM[c.dom] + "</td></tr>";
+      }).join("") + "</tbody></table>";
+    var t = $("[data-dottable]"); if (t) t.innerHTML = tbl;
+  }
+
+  var claimState = { b: "all", d: "all", s: "all", rev: false, sort: "group" };
+  var renderClaims = function () {};
+  function openClaim(id) {
+    claimState.b = "all"; claimState.d = "all"; claimState.s = "all"; claimState.rev = false;
+    $$(".filters .chip").forEach(function (x) { var on = x.dataset.val === "all" && x.dataset.key !== "rev"; if (x.dataset.key === "rev") on = false; x.setAttribute("aria-pressed", on ? "true" : "false"); });
+    renderClaims();
+    var d = document.getElementById("claim-" + id);
+    if (d) { d.open = true; d.scrollIntoView({ block: "center" }); d.querySelector("summary").focus({ preventScroll: true }); }
+  }
 
   function buildClaims() {
     var host = $("[data-claims]"); if (!host) return;
-    var state = { v: "all", s: "all" };
-    var vRow = $("[data-filter='verdict']"), sRow = $("[data-filter='serves']");
-    function chip(row, key, val, label, glyph, n) {
-      var b = el("button", "chip");
+    var bRow = $("[data-filter='band']"), dRow = $("[data-filter='domain']"), sRow = $("[data-filter='serves']"), oRow = $("[data-filter='sort']");
+    function chip(row, key, val, label, n, extraCls) {
+      var b = el("button", "chip" + (extraCls ? " " + extraCls : ""));
       b.type = "button";
-      b.setAttribute("aria-pressed", val === "all" ? "true" : "false");
-      b.dataset.val = val;
-      b.innerHTML = (glyph ? '<i class="g ' + glyph + '"></i>' : "") + label + (n != null ? ' <span class="n">' + n + "</span>" : "");
+      b.dataset.val = val; b.dataset.key = key;
+      var pressed = key === "rev" ? false : key === "sort" ? val === "group" : val === "all";
+      b.setAttribute("aria-pressed", pressed ? "true" : "false");
+      b.innerHTML = label + (n != null ? ' <span class="n">' + n + "</span>" : "");
       b.addEventListener("click", function () {
-        state[key] = val;
-        $$("button", row).forEach(function (x) { x.setAttribute("aria-pressed", x.dataset.val === val ? "true" : "false"); });
-        render();
+        if (key === "rev") { claimState.rev = !claimState.rev; b.setAttribute("aria-pressed", claimState.rev ? "true" : "false"); }
+        else {
+          claimState[key] = val;
+          $$("button", row).forEach(function (x) { if (x.dataset.key === key) x.setAttribute("aria-pressed", x.dataset.val === val ? "true" : "false"); });
+        }
+        renderClaims();
       });
       row.appendChild(b);
     }
-    chip(vRow, "v", "all", "All", null, CLAIMS.length);
-    Object.keys(VERD).forEach(function (k) { chip(vRow, "v", k, VERD[k], k, CLAIMS.filter(function (c) { return c.v === k; }).length); });
+    chip(bRow, "b", "all", "All", CLAIMS.length);
+    BANDS.forEach(function (bd) { chip(bRow, "b", bd.k, bd.label, CLAIMS.filter(function (c) { return bandOf(c.p).k === bd.k; }).length); });
+    chip(dRow, "d", "all", "All");
+    Object.keys(DOM).forEach(function (k) { chip(dRow, "d", k, DOM[k], CLAIMS.filter(function (c) { return c.dom === k; }).length); });
+    chip(dRow, "rev", "rev", "Changed in re-score", CLAIMS.filter(function (c) { return c.was; }).length, "chip-rev");
     chip(sRow, "s", "all", "All");
-    Object.keys(SERVES).forEach(function (k) { chip(sRow, "s", k, SERVES[k], null, CLAIMS.filter(function (c) { return c.sv.indexOf(k) >= 0; }).length); });
+    Object.keys(SERVES).forEach(function (k) { chip(sRow, "s", k, SERVES[k], CLAIMS.filter(function (c) { return c.sv.indexOf(k) >= 0; }).length); });
+    chip(oRow, "sort", "group", "By topic");
+    chip(oRow, "sort", "p", "By probability");
 
-    function render() {
-      host.innerHTML = "";
-      var shown = 0;
-      GROUPS.forEach(function (gname, gi) {
-        var items = CLAIMS.filter(function (c) { return c.g === gi && (state.v === "all" || c.v === state.v) && (state.s === "all" || c.sv.indexOf(state.s) >= 0); });
-        if (!items.length) return;
-        host.appendChild(el("h3", "grp", gname));
-        items.forEach(function (c) {
-          shown++;
-          var d = el("details", "claim");
-          var sum = el("summary");
-          sum.innerHTML = '<i class="g ' + c.v + '" role="img" aria-label="' + VERD[c.v] + '"></i>' +
-            '<span class="ct">' + c.c + "</span><i class=\"chev\" aria-hidden=\"true\"></i>" +
-            '<span class="cv"><b>' + VERD[c.v] + ".</b> " + c.vt + ' <span class="serves">' + c.sv.map(function (k) { return "<span>" + SERVES[k] + "</span>"; }).join("") + "</span></span>";
-          d.appendChild(sum);
-          var body = el("div", "body",
-            '<p><span class="lbl">What the evidence shows</span>' + cite(c.e) + "</p>" +
-            '<p><span class="lbl">Confidence</span>' + c.conf.charAt(0).toUpperCase() + c.conf.slice(1) + "</p>");
-          d.appendChild(body);
-          host.appendChild(d);
-        });
-      });
-      if (!shown) host.appendChild(el("p", "empty", "No claim matches both filters. Set either filter to All to see more."));
-      $("[data-count]").textContent = "Showing " + shown + " of " + CLAIMS.length + " claims. Open any claim for its evidence.";
+    function card(c) {
+      var d = el("details", "claim");
+      d.id = "claim-" + c.id;
+      var bd = bandOf(c.p);
+      var sum = el("summary");
+      sum.innerHTML =
+        '<span class="ct"><span class="cid">' + c.id + "</span>" + c.t + "</span>" +
+        '<i class="chev" aria-hidden="true"></i>' +
+        '<span class="cp"><b class="pn">P ' + fmtP(c.p) + '</b><span class="pb-label">' + bd.label + "</span>" + strip(c) + "</span>" +
+        '<span class="cv">' + c.s + ' <span class="serves">' + c.sv.map(function (k) { return "<span>" + SERVES[k] + "</span>"; }).join("") +
+        (c.was ? '<span class="revtag">Revised</span>' : "") + "</span></span>";
+      d.appendChild(sum);
+      var body = el("div", "body",
+        '<p><span class="lbl">What sets the number</span>' + cite(c.e) + "</p>" +
+        '<p class="meta">Range ' + fmtP(c.lo) + "–" + fmtP(c.hi) + (c.pb != null ? "; scorer A " + fmtP(c.pa) + ", scorer B " + fmtP(c.pb) : "") + (c.was ? "; previously: " + c.was : "") + "</p>");
+      d.appendChild(body);
+      return d;
     }
-    render();
+    renderClaims = function () {
+      host.innerHTML = "";
+      var match = function (c) {
+        return (claimState.b === "all" || bandOf(c.p).k === claimState.b) && (claimState.d === "all" || c.dom === claimState.d) &&
+          (claimState.s === "all" || c.sv.indexOf(claimState.s) >= 0) && (!claimState.rev || c.was);
+      };
+      var shown = 0;
+      if (claimState.sort === "p") {
+        var items = CLAIMS.filter(match).sort(function (a, b) { return b.p - a.p; });
+        BANDS.forEach(function (bd) {
+          var inBand = items.filter(function (c) { return bandOf(c.p).k === bd.k; });
+          if (!inBand.length) return;
+          host.appendChild(el("h3", "grp", bd.label));
+          inBand.forEach(function (c) { shown++; host.appendChild(card(c)); });
+        });
+      } else {
+        GROUPS.forEach(function (gname, gi) {
+          var items = CLAIMS.filter(function (c) { return c.g === gi && match(c); });
+          if (!items.length) return;
+          host.appendChild(el("h3", "grp", gname));
+          items.forEach(function (c) { shown++; host.appendChild(card(c)); });
+        });
+      }
+      if (!shown) host.appendChild(el("p", "empty", "No claim matches every filter. Set a filter back to All to see more."));
+      $("[data-count]").textContent = "Showing " + shown + " of " + CLAIMS.length + " claims. Open any claim for the evidence and mechanism behind its number.";
+    };
+    renderClaims();
   }
 
   /* ---------------- decision rules ---------------- */
   var RULES = [
-    ["She pushes up on hands and knees, or the bassinet label names rolling", "Crib, mini crib or play yard tonight", "Bedside sleeper, SNOO, in-bed sleeper", "Standard and manufacturer criteria"],
+    ["She pushes up on hands and knees, or the bassinet label names rolling", "Crib, mini crib or play yard tonight", "Bedside sleeper, SNOO, in-bed sleeper", "P 0.73; standard and manufacturer criteria"],
     ["She rolls onto her front asleep", "Leave her if she rolls both ways; always start her on her back", "Positioners, wedges, rolled towels", "AAP guidance; support cushions carry a “not for sleep” rule"],
-    ["Whoever is holding her for a nap feels drowsy", "Put her down on her back, or hand her off, at once", "“Rest your eyes”; recline on a sofa or recliner", "Sofa OR 18–67; measured"],
-    ["A parent wants to sleep beside her", "Prepared bed, both adults sober and rested, mother's side", "The sofa; any night with alcohol, sedating medication or exhaustion", "[[blair2014]]; [[carpenter2013]]"],
-    ["She stirs, grunts, fusses or calls briefly at night", "Watch for 2–4 minutes, the latency ordinary parents show", "Lift her at the first sound", "Observational; Plate XI"],
-    ["She cries in distress", "Respond promptly and fully", "Timed ignoring, at this age or without a problem you yourselves define", "No body endorses it under 6 months; no child benefit shown"],
-    ["A nap ends at 45 minutes", "Content: the nap is over. Upset or irritable afterwards: rock her on", "Run the day by a wake-window clock; keep her awake to “build pressure”", "Norms; [[franco2004]]"],
-    ["Night waking rises alongside crawling or pulling up", "Same responses, same timing, floor practice by day; expect it to pass", "Overhaul the routine; blame teething", "Actigraphy cohorts, one laboratory"],
+    ["Whoever is holding her for a nap feels drowsy", "Put her down on her back, or hand her off, at once", "“Rest your eyes”; recline on a sofa or recliner", "P 0.94; sofa OR 18–67"],
+    ["A parent wants to sleep beside her", "Prepared bed, both adults sober and rested, mother's side", "The sofa; any night with alcohol, sedating medication or exhaustion", "P 0.38 that a prepared bed adds 1.5-fold risk; P 0.93 for alcohol or sedatives ([[blair2014]]; [[carpenter2013]])"],
+    ["She stirs, grunts, fusses or calls briefly at night", "Watch for 2–4 minutes, the latency ordinary parents show", "Lift her at the first sound", "P 0.70; Plate XI"],
+    ["She cries in distress", "Respond promptly and fully", "Timed ignoring, at this age or without a problem you yourselves define", "P 0.50 that responsive night care feeds attachment; no body endorses extinction under 6 months"],
+    ["A nap ends at 45 minutes", "Content: the nap is over. Upset or irritable afterwards: rock her on", "Run the day by a wake-window clock; keep her awake to “build pressure”", "P 0.12 that extending naps helps; P 0.20 for \u201covertired\u201d ([[franco2004]])"],
+    ["Night waking rises alongside crawling or pulling up", "Same responses, same timing, floor practice by day; expect it to pass", "Overhaul the routine", "P 0.75: small actigraphy studies that fit the motor-learning mechanism"],
     ["Three or more wakings nightly for several weeks, loud snoring or laboured breathing, or 24-hour sleep under about 11 h", "Look for illness and sleep-disordered breathing; re-measure ferritin", "Assume it is behavioural", "Persistent breathing symptoms went with 5.3 fewer language points at age 2 ([[smithson2018]])"],
-    ["After 6 months you come to regard night waking as a problem", "In order: feed earlier in the routine, put her down awake with a parent present, then graduated checks. Expect improvement in what you notice for 1 in 4 to 1 in 10 infants", "Expect more total sleep, a lasting effect, or the advertised harm or benefit", "[[korownyk2018]]; [[hall2015]]; [[price2012]]"],
+    ["After 6 months you come to regard night waking as a problem", "In order: feed earlier in the routine, put her down awake with a parent present, then graduated checks. Expect improvement in what you notice for 1 in 4 to 1 in 10 infants", "Expect more total sleep (P 0.30), a lasting effect, or the advertised harm (P 0.14) or benefit (P 0.10)", "P 0.85 for fewer signalled wakings; [[korownyk2018]]; [[hall2015]]; [[price2012]]"],
     ["She drops the night feed herself", "Let it go", "Add a dream feed back", "No evidence a feed is required at a given age"],
-    ["You want to drop the night feed after 6 months", "Taper gradually, shift intake to the day, keep total daily milk removals up", "Expect longer sleep", "24-hour intake unchanged when night intervals were stretched in 26 infants ([[pinilla1993]]); supply advice is mechanistic judgement"],
+    ["You want to drop the night feed after 6 months", "Taper gradually, shift intake to the day, keep total daily milk removals up", "Expect longer sleep (P 0.30)", "24-hour intake unchanged when night intervals were stretched in 26 infants ([[pinilla1993]]); supply advice is mechanistic judgement"],
     ["Only morning-pumped milk is on hand at bedtime", "Nurse, or use it anyway", "Pump overnight to bank night milk", "Untested hypothesis; maternal sleep matters more"],
     ["She is ill or just vaccinated", "Respond fully; resume the routine when she is well", "Treat the interruption as a lost habit", "Infants slept more in the 24 h after immunisation (n = 70, [[franck2011]])"],
     ["Travel or a clock change", "Shift with light: morning light to move earlier, evening light to move later, 15–20 minutes a day; safe-sleep rules apply with extra force in unfamiliar rooms", "Melatonin", "Mechanism only; no infant studies"]
@@ -863,7 +1030,7 @@
     [3, "Likely", "“Self-soothing must be taught”; sleeping through by 6 months as the norm", "Replaced by wider normative ranges and the signalling-versus-waking distinction."],
     [2, "Possible", "Pacifier advice; breastfeeding's independent SIDS effect; routine iron from 4 months", "Downgraded or re-explained: no mechanism for pacifiers; proximity may confound breastfeeding (in sibling comparisons, breastfeeding's associations with 10 of 11 child outcomes lost significance, [[colen2014]]); the only modern iron trial is null."],
     [3, "Will fade, never having been consensus", "Wake windows, regression calendars, “drowsy but awake” as a requirement", "No outcome data to defend them."],
-    [1, "Unlikely to be confirmed", "Brain or attachment damage from limited crying; attachment dividends from co-sleeping", "Neither claim has direct evidence; the follow-ups that exist are null."],
+    [1, "Unlikely to be confirmed", "Brain or attachment damage from limited crying; attachment dividends from co-sleeping", "P 0.14 and 0.15. Neither claim has direct evidence; the follow-ups that exist are null."],
     [0, "Least likely to move", "Back sleeping; smoke avoidance; no sofa sleep; no surface-sharing after alcohol or sedatives; firm, flat, bare surfaces; risk concentrated in the first 6 months", "Large, consistent effects with physical mechanisms and population-level natural experiments."],
     [0, "Least likely to move", "Wide normal variation; consolidation is mostly maturation; caregiver mental health outweighs technique; no demonstrated long-term effect of sleep-practice choices within normal care", "Could be overturned only by trials much larger than any yet run."]
   ];
@@ -911,6 +1078,8 @@
   drawDial();
   buildTimeline();
   buildClaims();
+  buildDotPlot();
+  calibration();
   buildRules();
   buildLatency();
   buildRev();
